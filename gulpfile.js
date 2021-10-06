@@ -4,8 +4,7 @@ const del = require(`del`);
 const sass = require(`gulp-sass`);
 const babel = require(`gulp-babel`);
 const htmlCompressor = require(`gulp-htmlmin`);
-//const htmlValidator = require(`gulp-html`);
-const w3cjs = require('gulp-w3cjs');
+const htmlValidator = require(`gulp-html`);
 const jsLinter = require(`gulp-eslint`);
 const jsCompressor = require(`gulp-uglify`);
 const imageCompressor = require(`gulp-imagemin`);
@@ -44,18 +43,10 @@ async function allBrowsers () {
     ];
 }
 
-//gulp-html refuses to work, cannot find the vnu jar file...
-//requirements still ask for gulp-html plugin to be used...
-//let validateHTML = () => {
-//    return gulp.src(
-//		`html/*.html`)
-//        .pipe(htmlValidator());
-//};
-
-let valW3cjs = () => {
-    return gulp.src('html/*.html')
-        .pipe(w3cjs())
-        .pipe(w3cjs.reporter());
+let validateHTML = () => {
+    return gulp.src(
+		`html/*.html`)
+        .pipe(htmlValidator());
 };
 
 let compressHTML = () => {
@@ -156,14 +147,14 @@ let serve = () => {
     ).on(`change`, reload);
 
     watch(`html/*.html`,
-        series(valW3cjs)
+        series(validateHTML)
     ).on(`change`, reload);
 };
 
 async function clean() {
     let fs = require(`fs`),
         i,
-        foldersToDelete = [`temp`, `prod`];
+        foldersToDelete = [`temp`, `prod`, 'package-lock.json'];
 
     for (i = 0; i < foldersToDelete.length; i++) {
         try {
@@ -207,8 +198,7 @@ exports.opera = series(opera, serve);
 exports.edge = series(edge, serve);
 exports.safari = series(safari, serve);
 exports.allBrowsers = series(allBrowsers, serve);
-//exports.validateHTML = validateHTML;
-exports.valW3cjs = valW3cjs;
+exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.compileCSSForDev = compileCSSForDev;
 exports.compileCSSForProd = compileCSSForProd;
@@ -222,6 +212,6 @@ exports.build = series(
     transpileJSForProd,
     copyUnprocessedAssetsForProd
 );
-exports.serve = series(compileCSSForDev, lintJS, transpileJSForDev, valW3cjs, serve);
+exports.serve = series(compileCSSForDev, lintJS, transpileJSForDev, validateHTML, serve);
 exports.clean = clean;
 exports.default = listTasks;
