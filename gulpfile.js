@@ -5,6 +5,7 @@ const sass = require(`gulp-sass`);
 const babel = require(`gulp-babel`);
 const htmlCompressor = require(`gulp-htmlmin`);
 const htmlValidator = require(`gulp-html`);
+const cssLinter = require(`gulp-stylelint`);
 const jsLinter = require(`gulp-eslint`);
 const jsCompressor = require(`gulp-uglify`);
 const imageCompressor = require(`gulp-imagemin`);
@@ -86,28 +87,15 @@ let transpileJSForProd = () => {
         .pipe(dest(`prod/js`));
 };
 
+let lintCSS = () => {
+	return src(`css/*.css`)
+		.pipe(cssLinter());
+}
+
 let lintJS = () => {
     return src(`js/*.js`)
-        .pipe(jsLinter({
-            parserOptions: {
-                ecmaVersion: 2017,
-                sourceType: `module`
-            },
-            rules: {
-                indent: [2, 4, {SwitchCase: 1}],
-                quotes: [2, `backtick`],
-                semi: [2, `always`],
-                'linebreak-style': [2, `unix`],
-                'max-len': [1, 85, 4]
-            },
-            env: {
-                es6: true,
-                node: true,
-                browser: true
-            },
-            extends: `eslint:recommended`
-        }))
-        .pipe(jsLinter.formatEach(`compact`, process.stderr));
+		.pipe(jsLinter())
+        .pipe(jsLinter.format());
 };
 
 let copyUnprocessedAssetsForProd = () => {
@@ -205,6 +193,7 @@ exports.compileCSSForProd = compileCSSForProd;
 exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
+exports.lintCSS = lintCSS;
 exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.build = series(
 	compressHTML,
@@ -212,6 +201,6 @@ exports.build = series(
     transpileJSForProd,
     copyUnprocessedAssetsForProd
 );
-exports.serve = series(compileCSSForDev, lintJS, transpileJSForDev, validateHTML, serve);
+exports.serve = series(compileCSSForDev, lintJS, lintCSS, transpileJSForDev, validateHTML, serve);
 exports.clean = clean;
 exports.default = listTasks;
