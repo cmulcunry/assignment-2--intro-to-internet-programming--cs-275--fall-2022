@@ -12,10 +12,15 @@
      <button id="whiteButton">White Rice</button>
    </div>
 
+   <div id="amountofRice">
+     <h4>How much rice do you want to make?</h4>
+ 	  <input type="text" id="ricetextbox" onkeyup="returnAmountOfWater()" placeholder = "1"/>
+  </div>
+
 
    <div id="whiteRiceRecipe">
      <h2> Making White Rice </h2>
-     <h3>Combine 1 cup of rice with 2 cups of water and 1 Tbsp olive oil.</h3>
+     <h3>Combine <div id="cupsofrice"></div> cup of rice with <div id="cupsofwater"></div> cups of water and 1 Tbsp olive oil.</h3>
      <h3>Bring to a boil and stir once to mix.</h3>
      <h3>Bring to a boil, then reduce heat to the lowest setting.</h3>
      <h3>Cook for about 18 minutes.</h3>
@@ -23,7 +28,7 @@
 
   <div id="caliRiceRecipe">
     <h2> Making California Rice </h2>
-    <h3>Combine 1 1/4 cups of rice with 2 cups of water or broth and 1 Tbsp olive oil.</h3>
+    <h3>Combine <div id="cupsofrice"></div> cups of rice with <div id="cupsofwater"></div> cups of water or broth and 1 Tbsp olive oil.</h3>
     <h3>Bring to a boil and stir once to mix.</h3>
     <h3>Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</h3>
     <h3>Remove from heat and let stand for 5 minutes.</h3>
