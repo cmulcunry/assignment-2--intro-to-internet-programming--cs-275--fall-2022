@@ -2,13 +2,17 @@ const { src, dest, series, watch } = require(`gulp`);
 const gulp = require('gulp');
 const del = require(`del`);
 const babel = require(`gulp-babel`);
+const browserSync = require(`browser-sync`);
+
 const htmlCompressor = require(`gulp-htmlmin`);
 const htmlValidator = require(`gulp-html`);
-const jsLinter = require(`gulp-eslint`);
-const jsCompressor = require(`gulp-uglify`);
-const browserSync = require(`browser-sync`);
-const cssValidator = require('gulp-w3c-css');
 const htmlLinter = require('gulp-html-lint');
+
+const jsCompressor = require(`gulp-uglify`);
+const jsValidator = require(`gulp-uglify`);
+
+const cssCompressor = require(`gulp-uglifycss`);
+const cssValidator = require('gulp-stylelint');
 
 const reload = browserSync.reload;
 let browserChoice = `default`;
@@ -82,6 +86,12 @@ let validateCSS = () => {
         `css/*.css`,
         `css/**/*.css`])
         .pipe(cssValidator());
+};
+
+let compressCSS = () => {
+    return src(`css/*.css`)
+        .pipe(cssCompressor())
+        .pipe(dest(`prod/css/`));
 };
 
 let lintJS = () => {
@@ -180,16 +190,17 @@ exports.chrome = series(chrome, serve);
 exports.opera = series(opera, serve);
 exports.edge = series(edge, serve);
 exports.allBrowsers = series(allBrowsers, serve);
+
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
-exports.build = series(
-    validateHTML,
-    validateCSS,
-    compressHTML,
-    transpileJSForProd
-);
-exports.serve = series(lintJS, transpileJSForDev, validateHTML, validateCSS, lintHTML,  serve);
+
+exports.serve = series(lintJS, transpileJSForDev, validateHTML, validateCSS, lintHTML, serve);
+
+exports.dev=series(validateHTML, validateCSS, lintHTML, lintCSS, lintJS,
+    transpileJSForDev, serve);
+exports.build=series(compressHTML, compressCSS, compressJS, transpileJSForProd, serve);
+
 exports.clean = clean;
 exports.default = listTasks;
