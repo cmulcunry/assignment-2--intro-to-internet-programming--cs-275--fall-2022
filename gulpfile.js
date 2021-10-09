@@ -7,9 +7,7 @@ const htmlValidator = require(`gulp-html`);
 const jsLinter = require(`gulp-eslint`);
 const jsCompressor = require(`gulp-uglify`);
 const browserSync = require(`browser-sync`);
-const cssLinter = require(`gulp-stylelint`);
 const cssValidator = require('gulp-w3c-css');
-const cssCompressor = require(`gulp-sass`);
 const htmlLinter = require('gulp-html-lint');
 
 const reload = browserSync.reload;
@@ -42,7 +40,7 @@ async function allBrowsers () {
 }
 
 let lintHTML = () => {
-    return src(`dev/html/*.html`)
+    return src(`html/*.html`)
         .pipe(htmlLinter({
             failAfterError: true,
             reporters: [
@@ -54,59 +52,40 @@ let lintHTML = () => {
 
 let validateHTML = () => {
     return src([
-        `dev/html/*.html`,
-        `dev/html/**/*.html`])
+        `html/*.html`,
+        `html/**/*.html`])
         .pipe(htmlValidator());
 };
 
 let compressHTML = () => {
-    return src([`dev/*.html`,`dev/**/*.html`])
+    return src([`*.html`,`**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
 };
 
 let transpileJSForDev = () => {
-    return src(`dev/js/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(dest(`temp/js`));
 };
 
 let transpileJSForProd = () => {
-    return src(`dev/js/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
         .pipe(dest(`prod/js`));
 
 };
 
-let compileCSSForProd = () => {
-    return src(`dev/css/style.css`)
-        .pipe(cssCompressor({
-            outputStyle: `compressed`,
-            precision: 10
-        }).on(`error`, cssCompressor.logError))
-        .pipe(dest(`prod/css`));
-};
-
-let lintCSS = () => {
-    return src(`dev/css/*.css`)
-        .pipe(cssLinter({
-            failAfterError: true,
-            reporters: [
-                {formatter: `verbose`, console: true}
-            ]
-        }));
-};
-
 let validateCSS = () => {
     return src([
-        `dev/css/*.css`,
-        `dev/css/**/*.css`])
+        `css/*.css`,
+        `css/**/*.css`])
         .pipe(cssValidator());
 };
 
 let lintJS = () => {
-    return src(`dev/js/*.js`)
+    return src(`js/*.js`)
         .pipe(jsLinter({
             parserOptions: {
                 ecmaVersion: 2017,
@@ -139,21 +118,21 @@ let serve = () => {
             baseDir: [
                 `temp`,
                 `dev`,
-                `dev/html`
+                `html`
             ]
         }
     });
 
-    watch(`dev/js/*.js`,
+    watch(`js/*.js`,
         series(lintJS, transpileJSForDev)
     ).on(`change`, reload);
 
 
-    watch(`dev/html/**/*.html`,
+    watch(`html/**/*.html`,
         series(validateHTML)
     ).on(`change`, reload);
 
-    watch(`dev/img/**/*`).on(`change`, reload);
+    watch(`img/**/*`).on(`change`, reload);
 };
 
 async function clean() {
@@ -209,9 +188,8 @@ exports.build = series(
     validateHTML,
     validateCSS,
     compressHTML,
-    transpileJSForProd,
-    compileCSSForProd
+    transpileJSForProd
 );
-exports.serve = series(lintJS, transpileJSForDev, validateHTML, validateCSS, lintCSS, lintHTML,  serve);
+exports.serve = series(lintJS, transpileJSForDev, validateHTML, validateCSS, lintHTML,  serve);
 exports.clean = clean;
 exports.default = listTasks;
