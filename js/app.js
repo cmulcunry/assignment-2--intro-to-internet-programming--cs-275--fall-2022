@@ -15,7 +15,8 @@ window.onload = function() {
 function isNumeric(str) {
     if (typeof str != `string`) return false; // we only process strings!
     return !isNaN(str) && // use type coercion to parse the _entirety_ of the string
-    !isNaN(parseFloat(str)); // ...and ensure strings of whitespace fail
+    !isNaN(parseFloat(str)) &&
+    str > 0; // ...and ensure strings of whitespace fail
 }
 
 function listener() { // eslint-disable-line no-unused-vars
