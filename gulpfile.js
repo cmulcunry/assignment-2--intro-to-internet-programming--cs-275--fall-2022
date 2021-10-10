@@ -1,7 +1,6 @@
 const { src, dest, series, watch } = require(`gulp`);
 const gulp = require('gulp');
 const del = require(`del`);
-const sass = require(`gulp-sass`);
 const babel = require(`gulp-babel`);
 const htmlCompressor = require(`gulp-htmlmin`);
 const htmlValidator = require(`gulp-html`);
@@ -54,24 +53,6 @@ let compressHTML = () => {
     return src([`html/*.html`,`html/**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
-};
-
-let compileCSSForDev = () => {
-    return src(`css/style.css`)
-        .pipe(sass({
-            outputStyle: `expanded`,
-            precision: 10
-        }).on(`error`, sass.logError))
-        .pipe(dest(`temp/styles`));
-};
-
-let compileCSSForProd = () => {
-    return src(`css/style.css`)
-        .pipe(sass({
-            outputStyle: `compressed`,
-            precision: 10
-        }).on(`error`, sass.logError))
-        .pipe(dest(`prod/styles`));
 };
 
 let transpileJSForDev = () => {
@@ -131,7 +112,7 @@ let serve = () => {
     ).on(`change`, reload);
 
     watch(`css/*.css`,
-        series(compileCSSForDev)
+        series(lintCSS)
     ).on(`change`, reload);
 
     watch(`html/*.html`,
@@ -142,7 +123,7 @@ let serve = () => {
 async function clean() {
     let fs = require(`fs`),
         i,
-        foldersToDelete = [`temp`, `prod`, 'package-lock.json'];
+        foldersToDelete = [`temp`, `prod`];
 
     for (i = 0; i < foldersToDelete.length; i++) {
         try {
@@ -188,8 +169,6 @@ exports.safari = series(safari, serve);
 exports.allBrowsers = series(allBrowsers, serve);
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
-exports.compileCSSForDev = compileCSSForDev;
-exports.compileCSSForProd = compileCSSForProd;
 exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
@@ -197,10 +176,9 @@ exports.lintCSS = lintCSS;
 exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.build = series(
 	compressHTML,
-    compileCSSForProd,
     transpileJSForProd,
     copyUnprocessedAssetsForProd
 );
-exports.serve = series(compileCSSForDev, lintJS, lintCSS, transpileJSForDev, validateHTML, serve);
+exports.dev = series(lintJS, lintCSS, transpileJSForDev, validateHTML, serve);
 exports.clean = clean;
 exports.default = listTasks;
