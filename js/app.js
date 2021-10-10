@@ -1,17 +1,22 @@
 let whiteRice = document.getElementById(`whiteRice`);
 let caliRice = document.getElementById(`caliRice`);
 let recipe = document.getElementById(`recipe`);
-var cups = document.getElementById(`cups`).value;
+let cups = document.getElementById(`cups`).value;
+let currentRice = `white`;
 
-var currentRice = `white`;
-
+/*https://stackoverflow.com/questions/511088/use-javascript-to-place-cursor-
+at-end-of-text-in-text-input-element?page=2&tab=Oldest*/
 window.onload = function() {
+    const end = document.getElementById(`cups`).value.length;
+    document.getElementById(`cups`).setSelectionRange(end, end);
     document.getElementById(`cups`).focus();
     document.getElementById(`whiteRice`).click();
 };
 
-//https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-
-//check-if-a-string-is-a-valid-number?page=1&tab=votes#tab-top
+/*https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-
+check-if-a-string-is-a-valid-number?page=1&tab=votes#tab-top*/
+/*https://stackoverflow.com/questions/45827/how-do-you-automatically-set-the-
+focus-to-a-textbox-when-a-web-page-loads*/
 function isNumeric(str) {
     if (typeof str != `string`) return false; // we only process strings!
     return !isNaN(str) && // use type coercion to parse the _entirety_ of the string
@@ -19,6 +24,8 @@ function isNumeric(str) {
     str > 0; // ...and ensure strings of whitespace fail
 }
 
+/*https://stackoverflow.com/questions/45399923/eslint-disable-warning-defined-
+but-never-used-for-specific-function/51295375*/
 function listener() { // eslint-disable-line no-unused-vars
     cups = document.getElementById(`cups`).value;
     if (!isNumeric(cups)) {
@@ -48,6 +55,8 @@ function listener() { // eslint-disable-line no-unused-vars
     }
 }
 
+/*https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-
+decimal-places-if-necessary*/
 let whiteRiceRecipe =
     `Combine `+ cups +` cup(s) of rice with ` + Math.round((cups * 2)*100)/100 +
     ` cups of water and 1 Tbsp olive oil.\n` +
