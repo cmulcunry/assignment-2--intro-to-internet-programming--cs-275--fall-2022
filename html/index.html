@@ -1,19 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Welcome to the rice fields</title>
-    <link href="style.css" rel="stylesheet">
-  </head>
-  <body>
-    <header>
-      <h1>Rice Recipes</h1>
-    </header>
-    <div>
-      <button id="white">White Rice</button>
-      <button id="sprouted">Sprouted California Rice</button>
-    </div>
-	 <div id="recipe"></div>
-    <script src="app.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Rachel Liang | Assignment 2 | Intro to Internet Programming</title>
+		<link href="style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com" rel="preconnect">
+		<link href="https://fonts.gstatic.com" crossorigin rel="preconnect">
+		<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Maven+Pro:wght@600&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		  <header>
+		    <h1>Rice Recipes</h1>
+		  </header>
+		  Type of rice:
+      <button id="whiteRice">White rice</button>
+      <button id="caliRice">California sprouted rice</button>
+      <form>
+        Number of cups: <input id="cups" type="text" onkeyup="listener()" size="3" maxlength="5" value="1">
+      </form>
+      <p id="recipe"></p>
+      <script type="text/javascript" src=app.js></script>
+	</body>
 </html>
