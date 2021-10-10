@@ -1,17 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&display=swap');
-
 #whiteRiceRecipe {
-  font-size: 17px
+  font-size: 17px;
   left: 10px;
   top: 20px;
 }
 
 h2 {
   font-family: 'Open Sans', sans-serif;
-  font-weight: medium;
+  font-weight: 500;
 }
 
 h3 {
   font-family: 'Open Sans', sans-serif;
-  font-weight: regular;
+  font-weight: 400;
 }

@@ -9,7 +9,7 @@ const htmlValidator = require(`gulp-html`);
 const htmlLinter = require('gulp-html-lint');
 
 const jsCompressor = require(`gulp-uglify`);
-const jsValidator = require(`gulp-uglify`);
+const jsLinter = require('gulp-eslint');
 
 const cssCompressor = require(`gulp-uglifycss`);
 const cssValidator = require('gulp-stylelint');
@@ -88,10 +88,19 @@ let validateCSS = () => {
         .pipe(cssValidator());
 };
 
+let lintCSS = () => {
+    return src(`css/style.css`)
+        .pipe(cssValidator({
+            failAfterError: true,
+            reporters: [
+                {formatter: `verbose`, console: true}
+            ]
+        }));
+};
+
 let compressCSS = () => {
-    return src(`css/*.css`)
-        .pipe(cssCompressor())
-        .pipe(dest(`prod/css/`));
+    return src(`css/*.css`).pipe(cssCompressor({
+        collapseWhitespace: true})).pipe(dest(`temp/css/`));
 };
 
 let lintJS = () => {
@@ -118,6 +127,15 @@ let lintJS = () => {
         .pipe(jsLinter.formatEach(`compact`, process.stderr));
 };
 
+let verifyJS = () => {
+    return src(`js/*.js`).pipe(es({fix:true})).pipe(es.format())
+        .pipe(es.failAfterError())
+        .pipe(babel({
+            presets: [`@babel/preset-env`]
+        }))
+        .pipe(dest(`temp/js/`));
+};
+
 let serve = () => {
     browserSync({
         notify: true,
@@ -138,7 +156,11 @@ let serve = () => {
     ).on(`change`, reload);
 
 
-    watch(`html/**/*.html`,
+    watch(`html/*.html`,
+        series(validateHTML, lintHTML)
+    ).on(`change`, reload);
+
+    watch(`css/**/*.css`,
         series(validateHTML)
     ).on(`change`, reload);
 
@@ -196,11 +218,10 @@ exports.compressHTML = compressHTML;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
 
-exports.serve = series(lintJS, transpileJSForDev, validateHTML, validateCSS, lintHTML, serve);
+exports.serve = series(validateHTML, validateCSS, transpileJSForDev ,serve);
 
-exports.dev=series(validateHTML, validateCSS, lintHTML, lintCSS, lintJS,
-    transpileJSForDev, serve);
-exports.build=series(compressHTML, compressCSS, compressJS, transpileJSForProd, serve);
+exports.dev = series(validateHTML, validateCSS, transpileJSForDev, lintHTML, lintCSS, serve);
+exports.build = series(compressHTML, compressCSS, transpileJSForProd, serve);
 
 exports.clean = clean;
 exports.default = listTasks;
