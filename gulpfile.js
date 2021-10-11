@@ -127,9 +127,10 @@ let lintJS = () => {
         .pipe(jsLinter.formatEach(`compact`, process.stderr));
 };
 
-let verifyJS = () => {
-    return src(`js/*.js`).pipe(es({fix:true})).pipe(es.format())
-        .pipe(es.failAfterError())
+let validateJS = () => {
+    return src(`js/*.js`).pipe(jsLinter({fix:true})).pipe(jsLinter.format())
+        .pipe(jsLinter
+            .failAfterError())
         .pipe(babel({
             presets: [`@babel/preset-env`]
         }))
@@ -220,7 +221,7 @@ exports.lintJS = lintJS;
 
 exports.serve = series(validateHTML, validateCSS, transpileJSForDev ,serve);
 
-exports.dev = series(validateHTML, validateCSS, transpileJSForDev, lintHTML, lintCSS, serve);
+exports.dev = series(validateHTML, validateCSS, validateJS, transpileJSForDev, lintHTML, lintCSS, lintJS, serve);
 exports.build = series(compressHTML, compressCSS, transpileJSForProd, serve);
 
 exports.clean = clean;
