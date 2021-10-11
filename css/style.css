@@ -11,3 +11,9 @@ h1 {
   background-color: #1c1e21;
   margin: -16px;
 }
+
+h2 {
+  font-family: Merriweather, sans-serif;
+  font-size: 32px;
+  text-align: center;
+}
