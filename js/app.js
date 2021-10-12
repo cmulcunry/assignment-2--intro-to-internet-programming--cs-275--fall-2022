@@ -41,10 +41,10 @@ check-if-a-string-is-a-valid-number?page=1&tab=votes#tab-top*/
 /*https://stackoverflow.com/questions/45827/how-do-you-automatically-set-the-
 focus-to-a-textbox-when-a-web-page-loads*/
 function isNumeric(str) {
-    if (typeof str !== `string`) return false; // we only process strings!
-    return !isNaN(str) && // use type coercion to parse the _entirety_ of the string
+    if (typeof str !== `string`) return false;
+    return !isNaN(str) &&
     !isNaN(parseFloat(str)) &&
-    str > 0; // ...and ensure strings of whitespace fail
+    str > 0;
 }
 
 /*https://stackoverflow.com/questions/45399923/eslint-disable-warning-defined-
