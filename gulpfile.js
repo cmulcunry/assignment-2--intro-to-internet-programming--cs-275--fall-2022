@@ -195,6 +195,12 @@ exports.build = series(
     transpileJSForProd,
     copyUnprocessedAssetsForProd
 );
-exports.dev = series(lintJS, lintCSS, transpileJSForDev, validateHTML, serve);
+exports.dev = series(
+    lintJS,
+    lintCSS,
+    transpileJSForDev,
+    validateHTML,
+    serve
+);
 exports.clean = clean;
 exports.default = listTasks;
