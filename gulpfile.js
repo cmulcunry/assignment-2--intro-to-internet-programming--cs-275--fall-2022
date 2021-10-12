@@ -244,7 +244,7 @@ let copyUnprocessedAssetsForProd = () => {
         `!/html/*.*`, // or any files in it
         `!/html/**`,  // or any sub folders;
         `!/**/*.js`,  // ignore JS;
-        `!/js/**` // and, ignore Sass/CSS.
+        `!/css/**` // and, ignore Sass/CSS.
     ], {dot: true}).pipe(dest(`prod`));
 };
 
