@@ -26,11 +26,13 @@
   "dependencies": {
     "@babel/preset-env": "^7.12.13",
     "browser-sync": "^2.27.5",
+    "css-minify": "^2.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-cli": "^2.3.0",
     "gulp-eslint": "^6.0.0",
     "gulp-stylelint": "^13.0.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "postcss": "^8.2.15"
   }
 }
