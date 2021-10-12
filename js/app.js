@@ -1,11 +1,16 @@
 let caliRiceRecipe = document.getElementById(`caliRiceRecipe`);
-let caliButton = document.getElementById(`caliButton`);
-
 let whiteRiceRecipe = document.getElementById(`whiteRiceRecipe`);
-let whiteRiceButton = document.getElementById(`whiteButton`);
+
+document.getElementById(`caliButton`).onclick = () => {
+    caliRiceRecipe.style.display = `block`;
+    whiteRiceRecipe.style.display = `none`;
+}
+document.getElementById(`whiteButton`).onclick = () => {
+    caliRiceRecipe.style.display = `none`;
+    whiteRiceRecipe.style.display = `block`;
+}
 
 let ricetextbox = document.getElementById(`ricetextbox`);
-
 
 window.onload = function() {
     ricetextbox.addEventListener("keyup", returnAmountOfWater);
@@ -28,16 +33,3 @@ function returnAmountOfWater() {
         }
     }
 }
-
-let whiteRiceRecipeSelected = () => {
-    caliRiceRecipe.style.display = `none`;
-    whiteRiceRecipe.style.display = `block`;
-};
-
-let caliRiceRecipeSelected = () => {
-    caliRiceRecipe.style.display = `block`;
-    whiteRiceRecipe.style.display = `none`;
-};
-
-caliButton.addEventListener(`click`, caliRiceRecipeSelected);
-whiteRiceButton.addEventListener(`click`, whiteRiceRecipeSelected);
