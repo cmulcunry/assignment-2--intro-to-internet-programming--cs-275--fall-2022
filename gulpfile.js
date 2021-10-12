@@ -1,8 +1,12 @@
-const { src, dest, series } = require(`gulp`);
+const { src, dest, series, watch } = require(`gulp`);
 const htmlValidator = require(`gulp-html`);
 const htmlCompressor = require(`gulp-htmlmin`);
+const babel = require(`gulp-babel`);
 const jsLinter = require(`gulp-eslint`);
 const cssLinter = require(`gulp-stylelint`);
+const browserSync = require(`browser-sync`);
+const reload = browserSync.reload;
+let browserChoice = `default`;
 
 let validateHTML = () => {
     return src([`html/*.html`, `html/**/*.html`]).pipe(htmlValidator());
@@ -12,6 +16,12 @@ let compressHTML = () => {
     return src([`html/*.html`,`html/**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
+};
+
+let transpileJSForDev = () => {
+    return src(`js/*.js`)
+        .pipe(babel())
+        .pipe(dest(`temp/scripts`));
 };
 
 let lintJS = () => {
@@ -181,7 +191,34 @@ let lintCSS = () => {
             "no-missing-end-of-source-newline": true
           }
         }))
-      .pipe(cssLinter.formatEach(`compact`, process.stderr));
+};
+let serve = () => {
+    browserSync({
+        notify: true,
+        port: 9000,
+        reloadDelay: 50,
+        browser: browserChoice,
+        server: {
+            baseDir: [
+                `temp`,
+                `html`,
+                `js`,
+                `css`,
+            ]
+        }
+    });
+
+    watch(`js/*.js`,
+        series(lintJS, transpileJSForDev)
+    ).on(`change`, reload);
+
+    watch(`css/*css`,
+        series(lintCSS)
+    ).on(`change`, reload);
+
+    watch(`html/*.html`,
+        series(validateHTML)
+    ).on(`change`, reload);
 };
 
 exports.validateHTML = validateHTML;
@@ -189,3 +226,5 @@ exports.compressHTML = compressHTML;
 exports.HTMLProcessing = series(validateHTML, compressHTML);
 exports.lintJS = lintJS;
 exports.lintCSS = lintCSS;
+exports.transpileJSForDev = transpileJSForDev;
+exports.dev = series(lintCSS, lintJS, transpileJSForDev, validateHTML, serve);
