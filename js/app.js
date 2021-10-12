@@ -6,9 +6,9 @@ let currentRice = `white`;
 
 /*https://stackoverflow.com/questions/511088/use-javascript-to-place-cursor-
 at-end-of-text-in-text-input-element?page=2&tab=Oldest*/
-window.onload = function() {
-    const end = document.getElementById(`cups`).value.length;
-    document.getElementById(`cups`).setSelectionRange(end, end);
+window.onload = () => {
+    const END = document.getElementById(`cups`).value.length;
+    document.getElementById(`cups`).setSelectionRange(END, END);
     document.getElementById(`cups`).focus();
     document.getElementById(`whiteRice`).click();
 };
@@ -41,7 +41,7 @@ check-if-a-string-is-a-valid-number?page=1&tab=votes#tab-top*/
 /*https://stackoverflow.com/questions/45827/how-do-you-automatically-set-the-
 focus-to-a-textbox-when-a-web-page-loads*/
 function isNumeric(str) {
-    if (typeof str != `string`) return false; // we only process strings!
+    if (typeof str !== `string`) return false; // we only process strings!
     return !isNaN(str) && // use type coercion to parse the _entirety_ of the string
     !isNaN(parseFloat(str)) &&
     str > 0; // ...and ensure strings of whitespace fail
@@ -55,10 +55,10 @@ function listener() { // eslint-disable-line no-unused-vars
         recipe.textContent =
         `Error, please input a number.`;
     } else {
-        if (currentRice == `white`) {
+        if (currentRice === `white`) {
             recipe.textContent = recipe.textContent =
             setWhiteRice(document.getElementById(`cups`).value);
-        } else if (currentRice == `cali`) {
+        } else if (currentRice === `cali`) {
             recipe.textContent = recipe.textContent =
             setCaliRice(document.getElementById(`cups`).value);
         }
