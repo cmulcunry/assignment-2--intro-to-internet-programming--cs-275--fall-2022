@@ -51,7 +51,7 @@ let lintJS = () => {
             'no-debugger': 0,
             indent: [2, 4, {SwitchCase: 1}],
             quotes: [2, 'backtick'],
-            'linebreak-style': [2, 'unix'],
+            'linebreak-style': [2, 'windows'],
             semi: [2, 'always'],
             'max-len': [2, 85, 4]
           },
