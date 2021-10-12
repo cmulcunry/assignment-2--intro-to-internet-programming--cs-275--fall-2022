@@ -7,7 +7,7 @@ const htmlValidator = require(`gulp-html`);
 const cssLinter = require(`gulp-stylelint`);
 const jsLinter = require(`gulp-eslint`);
 const jsCompressor = require(`gulp-uglify`);
-const imageCompressor = require(`gulp-imagemin`);
+const cssCompressor = require(`gulp-uglifycss`);
 const cache = require(`gulp-cache`);
 const browserSync = require(`browser-sync`);
 const reload = browserSync.reload;
@@ -52,8 +52,14 @@ let validateHTML = () => {
 let compressHTML = () => {
     return src([`html/*.html`,`html/**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
-        .pipe(dest(`prod`));
+        .pipe(dest(`prod/html`));
 };
+
+let compressCSS = () => {
+    return src(`css/*.css`)
+        .pipe(cssCompressor())
+        .pipe(dest(`prod/css`));
+}
 
 let transpileJSForDev = () => {
     return src(`js/*.js`)
@@ -86,7 +92,15 @@ let copyUnprocessedAssetsForProd = () => {
         `!html/`,    // but not the HTML folder
         `!html/*.*`, // or any files in it
         `!html/**`,  // or any sub folders;
-        `!**/*.js`,  // ignore JS;
+        `!css/`,    // but not the css folder
+        `!css/*.*`, // or any files in it
+        `!css/**`,  // or any sub folders;
+        `!js/`,    // but not the js folder
+        `!js/*.*`, // or any files in it
+        `!js/**`,  // or any sub folders;
+        `!prod/`,    // but not the prod folder
+        `!prod/*.*`, // or any files in it
+        `!prod/**`,  // or any sub folders;
         `!css/**` // and, ignore Sass/CSS.
     ], {dot: true}).pipe(dest(`prod`));
 };
@@ -169,12 +183,14 @@ exports.safari = series(safari, serve);
 exports.allBrowsers = series(allBrowsers, serve);
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
+exports.compressCSS = compressCSS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
 exports.lintCSS = lintCSS;
 exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.build = series(
+    compressCSS,
 	compressHTML,
     transpileJSForProd,
     copyUnprocessedAssetsForProd
