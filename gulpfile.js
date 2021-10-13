@@ -52,13 +52,13 @@ let validateHTML = () => {
 let compressHTML = () => {
     return src([`html/*.html`,`html/**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
-        .pipe(dest(`prod/html`));
+        .pipe(dest(`prod`));
 };
 
 let compressCSS = () => {
     return src(`css/*.css`)
         .pipe(cssCompressor())
-        .pipe(dest(`prod/css`));
+        .pipe(dest(`prod`));
 }
 
 let transpileJSForDev = () => {
@@ -71,7 +71,7 @@ let transpileJSForProd = () => {
     return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
-        .pipe(dest(`prod/js`));
+        .pipe(dest(`prod`));
 };
 
 let lintCSS = () => {
@@ -83,26 +83,6 @@ let lintJS = () => {
     return src(`js/*.js`)
 		.pipe(jsLinter())
         .pipe(jsLinter.format());
-};
-
-let copyUnprocessedAssetsForProd = () => {
-    return src([
-        `*.*`,       // Source all files,
-        `**`,        // and all folders,
-        `!html/`,    // but not the HTML folder
-        `!html/*.*`, // or any files in it
-        `!html/**`,  // or any sub folders;
-        `!css/`,    // but not the css folder
-        `!css/*.*`, // or any files in it
-        `!css/**`,  // or any sub folders;
-        `!js/`,    // but not the js folder
-        `!js/*.*`, // or any files in it
-        `!js/**`,  // or any sub folders;
-        `!prod/`,    // but not the prod folder
-        `!prod/*.*`, // or any files in it
-        `!prod/**`,  // or any sub folders;
-        `!css/**` // and, ignore Sass/CSS.
-    ], {dot: true}).pipe(dest(`prod`));
 };
 
 let serve = () => {
@@ -188,12 +168,10 @@ exports.transpileJSForDev = transpileJSForDev;
 exports.transpileJSForProd = transpileJSForProd;
 exports.lintJS = lintJS;
 exports.lintCSS = lintCSS;
-exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.build = series(
     compressCSS,
 	compressHTML,
-    transpileJSForProd,
-    copyUnprocessedAssetsForProd
+    transpileJSForProd
 );
 exports.dev = series(
     lintJS,
