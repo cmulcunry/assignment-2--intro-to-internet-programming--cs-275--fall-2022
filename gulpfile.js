@@ -198,8 +198,8 @@ exports.build = series(
 exports.dev = series(
     lintJS,
     lintCSS,
-    transpileJSForDev,
     validateHTML,
+    transpileJSForDev,
     serve
 );
 exports.clean = clean;
