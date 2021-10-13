@@ -1,0 +1,4 @@
+/*
+variable declaration = var;
+
+*/
