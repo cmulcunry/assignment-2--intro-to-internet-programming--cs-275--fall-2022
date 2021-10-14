@@ -2,7 +2,7 @@ const WHITE = document.getElementById(`white`);
 const CALIFORNIA = document.getElementById(`california`);
 const BUTTON = document.getElementById(`button`);
 const QUANTITY = document.getElementById(`input`);
-//const SELECT = document.getElementById(`select`);
+const SELECT = document.getElementById(`select`);
 
 let toggleRecipe = () => {
     if(CALIFORNIA.style.display === `none`) {
@@ -24,7 +24,18 @@ let updateQuantities = () => {
     WHITE.children[1].innerHTML = `1. Combine ${1*x} cup of rice with ${2*x} cups of water and ${1*x} Tbsp olive oil.`;
 };
 
-//SELECT.addEventListener(`change`, toggleRecipe());
+SELECT.addEventListener(`click`, event = () => {toggleSelect();});
+
+let toggleSelect = () => {
+    if(SELECT.selectedOptions[0].value === `California Sprouted Rice`) {
+        CALIFORNIA.style.display = `block`;
+        WHITE.style.display = `none`;
+    }
+    else if(SELECT.selectedOptions[0].value === `White Rice`) {
+        CALIFORNIA.style.display = `none`;
+        WHITE.style.display = `block`;
+    }
+};
 
 
 /*let updateQuantities = () => {
