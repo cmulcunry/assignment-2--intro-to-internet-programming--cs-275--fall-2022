@@ -1,15 +1,18 @@
-div {
-  margin-left: 10px;
-  margin-right: 10px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 button {
   text-align: center;
   font-size: 1 rem;
-  width: 20%;
-  margin: 20px;
 }
 
 .white {
   display: none;
+}
+
+.recipe {
+  flex: 1 1 auto;
 }
