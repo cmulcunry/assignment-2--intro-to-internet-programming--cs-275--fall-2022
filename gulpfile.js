@@ -5,7 +5,6 @@ const { src, dest, series, watch } = require(`gulp`),
     htmlValidator = require(`gulp-html`),
     jsCompressor = require(`gulp-uglify`),
     jsLinter = require(`gulp-eslint`),
-    sass = require(`gulp-sass`)(require(`sass`)),
     browserSync = require(`browser-sync`),
     reload = browserSync.reload;
 
@@ -59,15 +58,6 @@ let validateHTML = () => {
         .pipe(htmlValidator(undefined));
 };
 
-let compileCSSForDev = () => {
-    return src(`dev/styles/scss/main.scss`)
-        .pipe(sass.sync({
-            outputStyle: `expanded`,
-            precision: 10
-        }).on(`error`, sass.logError))
-        .pipe(dest(`temp/styles`));
-};
-
 let lintJS = () => {
     return src(`dev/scripts/*.js`)
         .pipe(jsLinter())
@@ -86,17 +76,8 @@ let compressHTML = () => {
         .pipe(dest(`prod`));
 };
 
-let compileCSSForProd = () => {
-    return src(`dev/styles/scss/main.scss`)
-        .pipe(sass.sync({
-            outputStyle: `compressed`,
-            precision: 10
-        }).on(`error`, sass.logError))
-        .pipe(dest(`prod/styles`));
-};
-
 let transpileJSForProd = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
         .pipe(dest(`prod/scripts`));
@@ -130,16 +111,10 @@ let serve = () => {
         }
     });
 
-    watch(`dev/scripts/*.js`, series(lintJS, transpileJSForDev))
+    watch(`js/*.js`, series(lintJS, transpileJSForDev))
         .on(`change`, reload);
 
-    watch(`dev/styles/scss/**/*.scss`, compileCSSForDev)
-        .on(`change`, reload);
-
-    watch(`dev/html/**/*.html`, validateHTML)
-        .on(`change`, reload);
-
-    watch(`dev/img/**/*`)
+    watch(`html/**/*.html`, validateHTML)
         .on(`change`, reload);
 };
 
@@ -164,7 +139,7 @@ async function listTasks () {
 }
 
 let lintCSS = () => {
-    return src(`dev/styles/css/**/*.css`)
+    return src(`css/**/*.css`)
         .pipe(CSSLinter({
             failAfterError: false,
             reporters: [
@@ -182,25 +157,21 @@ exports.safari = series(safari, serve);
 exports.vivaldi = series(vivaldi, serve);
 exports.allBrowsers = series(allBrowsers, serve);
 exports.validateHTML = validateHTML;
-exports.compileCSSForDev = compileCSSForDev;
 exports.lintJS = lintJS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.compressHTML = compressHTML;
-exports.compileCSSForProd = compileCSSForProd;
 exports.transpileJSForProd = transpileJSForProd;
 exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.default = listTasks;
 exports.lintCSS = lintCSS;
 exports.serve = series(
     validateHTML,
-    compileCSSForDev,
     lintJS,
     transpileJSForDev,
     serve
 );
 exports.build = series(
     compressHTML,
-    compileCSSForProd,
     transpileJSForProd,
     copyUnprocessedAssetsForProd
 );
