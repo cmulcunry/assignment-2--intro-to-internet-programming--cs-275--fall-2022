@@ -72,7 +72,6 @@ let lintCSS = () => {
             reporters: [
               {formatter: "string", console: true}
             ]
-
       }));
 };
 let serve = () => {
