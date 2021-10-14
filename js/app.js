@@ -1,10 +1,10 @@
 const WHITE = document.getElementById(`white`);
 const CALIFORNIA = document.getElementById(`california`);
-const BUTTON = document.getElementById(`button`);
+//const BUTTON = document.getElementById(`button`);
 const QUANTITY = document.getElementById(`input`);
 const SELECT = document.getElementById(`select`);
 
-let toggleRecipe = () => {
+/*let toggleRecipe = () => {
     if(CALIFORNIA.style.display === `none`) {
         CALIFORNIA.style.display = `block`;
         WHITE.style.display = `none`;
@@ -15,7 +15,7 @@ let toggleRecipe = () => {
         WHITE.style.display = `block`;
         BUTTON.innerHTML = `California Sprouted Rice`;
     }
-};
+};*/
 
 let updateQuantities = () => {
     let x = QUANTITY.value;
