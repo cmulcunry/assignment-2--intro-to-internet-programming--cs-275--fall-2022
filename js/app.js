@@ -6,9 +6,9 @@ const LABEL2 = document.getElementById(`label2`);
 
 let updateQuantities = () => {
     let x = QUANTITY.value;
-    CALIFORNIA.children[1].innerHTML = `1. Combine ${1*x} cups of rice with ${1.6*x} cups of water or broth and ${.8*x} Tbsp olive oil.`;
+    CALIFORNIA.children[1].innerHTML = `1. Combine ${1*x} cups of rice with ${1.6*x} cups of water or broth and 1 Tbsp olive oil.`;
     CALIFORNIA.children[5].innerHTML = `For softer rice, increase liquid by ${.4*x} cup and cook time by 5 minutes.`;
-    WHITE.children[0].innerHTML = `1. Combine ${1*x} cup of rice with ${2*x} cups of water and ${1*x} Tbsp olive oil.`;
+    WHITE.children[0].innerHTML = `1. Combine ${1*x} cup of rice with ${2*x} cups of water and 1 Tbsp olive oil.`;
 };
 
 SELECT.addEventListener(`click`, () => {toggleSelect();});
