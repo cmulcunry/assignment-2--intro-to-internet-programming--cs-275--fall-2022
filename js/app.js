@@ -10,7 +10,7 @@ CALIFORNIA.style.display = `block`;*/
 
 const WHITE = document.getElementById(`white`);
 const CALIFORNIA = document.getElementById(`california`);
-
+const BUTTON = document.getElementById(`button`);
 /*let toggleCalifornia = () => {
     if(CALIFORNIA.style.display === `none`) CALIFORNIA.style.display = `block`;
     else CALIFORNIA.style.display = `none`;
@@ -25,9 +25,11 @@ let toggleButton = () => {
     if(CALIFORNIA.style.display === `none`) {
         CALIFORNIA.style.display = `block`;
         WHITE.style.display = `none`;
+        BUTTON.innerHTML = `White Rice`;
     }
     else {
         CALIFORNIA.style.display = `none`;
         WHITE.style.display = `block`;
+        BUTTON.innerHTML = `California Sprouted Rice`;
     }
 };
