@@ -53,25 +53,25 @@ async function allBrowsers () {
 
 let validateHTML = () => {
     return src([
-        `dev/html/*.html`,
-        `dev/html/**/*.html`])
+        `html/*.html`,
+        `html/**/*.html`])
         .pipe(htmlValidator(undefined));
 };
 
 let lintJS = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(jsLinter())
         .pipe(jsLinter.formatEach(`compact`));
 };
 
 let transpileJSForDev = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(dest(`temp/scripts`));
 };
 
 let compressHTML = () => {
-    return src([`dev/html/*.html`,`dev/html/**/*.html`])
+    return src([`html/*.html`,`html/**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
 };
