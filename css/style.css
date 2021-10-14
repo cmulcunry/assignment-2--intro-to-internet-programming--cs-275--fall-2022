@@ -1,3 +1,10 @@
+body {
+  background-color: white;
+  line-height: 1rem;
+  font-family: serif;
+  font-size: 1rem;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,7 +13,6 @@
 
 button {
   text-align: center;
-  font-size: 1 rem;
 }
 
 .white {
