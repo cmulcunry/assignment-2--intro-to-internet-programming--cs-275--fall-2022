@@ -3,7 +3,6 @@ const CALIFORNIA = document.getElementById(`california`);
 //const BUTTON = document.getElementById(`button`);
 const QUANTITY = document.getElementById(`input`);
 const SELECT = document.getElementById(`select`);
-
 /*let toggleRecipe = () => {
     if(CALIFORNIA.style.display === `none`) {
         CALIFORNIA.style.display = `block`;
@@ -65,4 +64,8 @@ let decToFrac = (x) => {
     if(numerator !== 0 && y !== 0) return `${y} ${parseFloat(numerator).toPrecision(length(x-y))}/${denominator}`;
     else if(numerator !== 0) return `${parseFloat(numerator).toPrecision(length(x-y))}/${denominator}`;
     else return `${y}`;
+};*/
+
+/*let fracToMixed = (n,d) => {
+    return `${n/d | 0} ${n-(d*(n/d | 0))}/${d}`;
 };*/
