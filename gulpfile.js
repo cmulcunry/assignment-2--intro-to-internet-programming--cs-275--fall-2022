@@ -67,7 +67,7 @@ let lintJS = () => {
 let transpileJSForDev = () => {
     return src(`js/*.js`)
         .pipe(babel())
-        .pipe(dest(`temp/scripts`));
+        .pipe(dest(`temp/js`));
 };
 
 let compressHTML = () => {
@@ -80,7 +80,7 @@ let transpileJSForProd = () => {
     return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
-        .pipe(dest(`prod/scripts`));
+        .pipe(dest(`prod/js`));
 };
 
 let copyUnprocessedAssetsForProd = () => {
