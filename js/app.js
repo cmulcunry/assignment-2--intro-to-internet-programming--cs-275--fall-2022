@@ -11,7 +11,8 @@ let updateQuantities = () => {
     WHITE.children[0].innerHTML = `1. Combine ${1*x} cup of rice with ${2*x} cups of water and ${1*x} Tbsp olive oil.`;
 };
 
-SELECT.addEventListener(`click`, event = () => {toggleSelect();});
+SELECT.addEventListener(`click`, () => {toggleSelect();});
+//QUANTITY.addEventListener(`change`, updateQuantities());
 
 let toggleSelect = () => {
     if(SELECT.selectedOptions[0].value === `California Sprouted Rice`) {
