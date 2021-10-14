@@ -1,4 +1,4 @@
-const { src, dest, series } = require(`gulp`);
+const { src, dest, series,watch } = require(`gulp`);
 const htmlValidator = require(`gulp-html`);
 const htmlCompressor = require(`gulp-htmlmin`);
 
