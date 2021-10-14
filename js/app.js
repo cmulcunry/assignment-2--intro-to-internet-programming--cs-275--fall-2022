@@ -1,6 +1,6 @@
 
 
-function myFunction () {
+ function myFunction () {
     let rice = prompt("Do you want to cook White Rice or Sprouted California Rice ?");
     document.getElementById("Recipy").innerHTML
     let howMuch = prompt("How much rice would  you like  to cook (cups) ", "1");
