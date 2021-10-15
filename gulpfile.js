@@ -75,14 +75,21 @@ let transpileJSForProd = () => {
 };
 
 let lintCSS = () => {
-	return src(`css/*.css`)
-		.pipe(cssLinter());
-}
+    return src(`css/*.css`)
+        .pipe(cssLinter(
+          {
+            failAfterError: false,
+            reporters: [
+                {formatter: "string", console: true}
+            ]
+          }
+      ));
+};
 
 let lintJS = () => {
     return src(`js/*.js`)
 		.pipe(jsLinter())
-        .pipe(jsLinter.format());
+        .pipe(jsLinter.formatEach(`compact`));
 };
 
 let serve = () => {
@@ -96,7 +103,7 @@ let serve = () => {
                 `temp`,
                 `css`,
                 `html`,
-				`js`,
+                `js`
             ]
         }
     });
