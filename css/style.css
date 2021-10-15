@@ -1,18 +1,23 @@
 body {
-  position: absolute;
-  height: calc(100% - 100px);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
   text-align: center;
   background-color: black;
   color: pink;
   font-size: 20px;
   font-family: Dosis, sans-serif;
+  position: sticky;
   margin: 0;
 }
 
 h1 {
+  margin-top: 4em;
   text-align: center;
   font-size: 2rem;
   color: white;
@@ -20,11 +25,12 @@ h1 {
 }
 
 button {
-  color: pink;
+  color: white;
   background-color: grey;
   border-style: none;
   padding: 10px;
-  margin: 2px;
+  margin: 4px;
+  font-family: 'Maven Pro', sans-serif;
 }
 
 input {
@@ -39,13 +45,26 @@ input {
   margin: 10px;
 }
 
-#recipe {
+p {
+  line-height: 20px;
+}
+
+.relativeFixed {
+  position: fixed;
+  visibility: hidden;
+}
+
+.recipe {
+  letter-spacing: .8px;
+  text-align: left;
   color: white;
-  white-space: pre-wrap;
-  line-height: 2rem;
+  line-height: 2.5rem;
   border: .5px;
   border-style: dashed;
   border-color: rgb(255, 214, 221);
   max-width: 50em;
   padding: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin: 20px;
 }
