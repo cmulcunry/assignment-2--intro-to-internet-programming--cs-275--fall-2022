@@ -2,7 +2,7 @@ const WHITE = document.getElementById(`white`);
 const CALIFORNIA = document.getElementById(`california`);
 const QUANTITY = document.getElementById(`input`);
 const SELECT = document.getElementById(`select`);
-const LABEL2 = document.getElementById(`label2`);
+const RICETYPE = document.getElementById(`riceType`);
 const CALIRICE = document.getElementById(`caliRice`);
 const CALIWATER = document.getElementById(`caliWater`);
 const CALISOFTWATER = document.getElementById(`caliSoftWater`);
@@ -25,12 +25,12 @@ let toggleSelect = () => {
     if(SELECT.selectedOptions[0].value === `California Sprouted Rice`) {
         CALIFORNIA.style.display = `block`;
         WHITE.style.display = `none`;
-        LABEL2.innerHTML = `cups of California Sprouted Rice`;
+        RICETYPE.innerHTML = `California Sprouted`;
     }
     else if(SELECT.selectedOptions[0].value === `White Rice`) {
         CALIFORNIA.style.display = `none`;
         WHITE.style.display = `block`;
-        LABEL2.innerHTML = `cups of White Rice`;
+        RICETYPE.innerHTML = `White`;
     }
 };
 
