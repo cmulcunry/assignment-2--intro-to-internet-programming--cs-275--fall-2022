@@ -13,15 +13,30 @@
 		  <header>
 		    <h1>Rice Recipes</h1>
 		  </header>
-		  Type of rice:
       <div>
+				Type of rice:
         <button id="whiteRice">White Rice</button>
         <button id="caliRice">California Sprouted Rice</button>
       </div>
       <form>
-        Number of cups: <input id="cups" type="text" size="3" maxlength="5" value="1">
+        Number of cups: <input id="givenCups" type="text" size="3" maxlength="5" value="1">
       </form>
-      <p id="recipe"></p>
+			<div id="whiteRecipe" class="recipe">
+      	<p>Combine <span id="cup"></span> cup(s) of rice with <span id="whiteWater"></span> cups of water and 1 Tbsp olive oil.</p>
+				<p>Bring to a boil, then reduce heat to the lowest setting.</p>
+				<p>Cook for about 18 minutes.</p>
+			</div>
+			<div id="caliRecipe" class="recipe relativeFixed">
+      	<p>For slightly al dente rice: Combine <span id="cups"></span> cup(s) of rice with <span id="caliWater"></span> cups of water and 1 Tbsp olive oil.</p>
+				<p>Bring to a boil and stir once to mix.</p>
+				<p>Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</p>
+				<p>Remove from heat and let stand for 5 minutes.</p>
+				<p>Fluff with a fork and serve.</p>
+				<p>For softer rice: Increase liquid by 1/2 cup and cook time by 5 minutes.</p>
+      </div>
+			<div id="error" class="recipe relativeFixed">
+        <p>Error, please input a number.</p>
+      </div>
       <script type="text/javascript" src=app.js></script>
 	</body>
 </html>
