@@ -3,12 +3,19 @@ const CALIFORNIA = document.getElementById(`california`);
 const QUANTITY = document.getElementById(`input`);
 const SELECT = document.getElementById(`select`);
 const LABEL2 = document.getElementById(`label2`);
+const CALIRICE = document.getElementById(`caliRice`);
+const CALIWATER = document.getElementById(`caliWater`);
+const CALISOFTWATER = document.getElementById(`caliSoftWater`);
+const WHITERICE = document.getElementById(`whiteRice`);
+const WHITEWATER = document.getElementById(`whiteWater`);
 
 let updateQuantities = () => {
     let x = QUANTITY.value;
-    CALIFORNIA.children[1].innerHTML = `1. Combine ${1*x} cups of rice with ${1.6*x} cups of water or broth and 1 Tbsp olive oil.`;
-    CALIFORNIA.children[5].innerHTML = `For softer rice, increase liquid by ${.4*x} cup and cook time by 5 minutes.`;
-    WHITE.children[0].innerHTML = `1. Combine ${1*x} cup of rice with ${2*x} cups of water and 1 Tbsp olive oil.`;
+    CALIRICE.innerHTML = `${x}`;
+    CALIWATER.innerHTML = `${1.6*x}`;
+    CALISOFTWATER.innerHTML = `${0.4*x}`;
+    WHITERICE.innerHTML = `${x}`;
+    WHITEWATER.innerHTML = `${2*x}`;
 };
 
 SELECT.addEventListener(`click`, () => {toggleSelect();});
