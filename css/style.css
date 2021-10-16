@@ -8,10 +8,6 @@ div.disabled {
   position: fixed;
 }
 
-button.disabled {
-  background-color: gray;
-}
-
 #amountInput {
   width: 3rem;
 }
