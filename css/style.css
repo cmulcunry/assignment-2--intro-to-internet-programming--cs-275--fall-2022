@@ -7,23 +7,29 @@ body {
   width: 30rem;
 }
 
-div.disabled {
-  visibility: hidden;
-  position: fixed;
-}
-
-#amountInput {
-  width: 3rem;
-}
-
 body div {
   background-color: rgb(40,40,40);
   padding: 1rem;
   margin: 1rem;
 }
 
+div.disabled {
+  visibility: hidden;
+  position: fixed;
+}
+
 li {
   margin-bottom: 0.5rem;
+}
+
+#amountInput {
+  width: 3rem;
+}
+
+#titleDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #titleDiv span {
@@ -32,10 +38,4 @@ li {
 
 #titleDiv p {
   margin-bottom: 0;
-}
-
-#titleDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
