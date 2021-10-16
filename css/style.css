@@ -36,6 +36,11 @@ li {
   font-size: 1.2rem;
 }
 
+#titleDiv div {
+  margin-top: 0.5rem;
+}
+
 #titleDiv p {
+  margin-top: -1rem;
   margin-bottom: 0;
 }
