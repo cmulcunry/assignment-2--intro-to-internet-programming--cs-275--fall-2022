@@ -11,7 +11,7 @@
     "url": "git+https://github.com/code-warrior/assignment-2--intro-to-internet-programming--cs-275--fall-2021.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Erika Borja",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/code-warrior/assignment-2--intro-to-internet-programming--cs-275--fall-2021/issues"
@@ -22,6 +22,9 @@
     "gulp-htmlmin": "^5.0.1"
   },
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "stylelint": "^13.13.1"
   }
 }
