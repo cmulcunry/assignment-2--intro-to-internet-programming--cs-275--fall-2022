@@ -25,3 +25,17 @@ body div {
 li {
   margin-bottom: 0.5rem;
 }
+
+#titleDiv span {
+  font-size: 1.2rem;
+}
+
+#titleDiv p {
+  margin-bottom: 0;
+}
+
+#titleDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
