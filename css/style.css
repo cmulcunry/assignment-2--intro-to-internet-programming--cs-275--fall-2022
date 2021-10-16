@@ -1,0 +1,8 @@
+div.disabled {
+  visibility: hidden;
+  position: fixed;
+}
+
+button.disabled {
+  background-color: gray;
+}
