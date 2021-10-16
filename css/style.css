@@ -15,3 +15,9 @@ div.disabled {
 #amountInput {
   width: 3rem;
 }
+
+body div {
+  background-color: rgb(40,40,40);
+  padding: 1rem;
+  margin: 1rem;
+}
