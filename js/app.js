@@ -34,7 +34,11 @@ function washNumber(washable) {
             denominator /= 2;
         }
 
-        washable = `${washable > 1 ? Math.floor(washable) : ""} ${numerator}/${denominator}`;
+        if (numerator === 1 && denominator === 1) {
+            washable = `${Math.ceil(washable)}`;
+        } else {
+            washable = `${washable > 1 ? Math.floor(washable) : ""} ${numerator}/${denominator}`;
+        }
     }
 
     return washable;
