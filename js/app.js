@@ -1,5 +1,6 @@
 function init() {
     updateAmount();
+    dropdownChangeRice();
 };
 
 function changeSelection(toWhat) {
