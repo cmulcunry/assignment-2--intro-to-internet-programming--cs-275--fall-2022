@@ -2,42 +2,18 @@ function init() {
     updateAmount();
 };
 
-function disableWhite() {
-    document.getElementById("whiteDiv").classList.add("disabled");
-    document.getElementById("whiteButton").classList.remove("disabled");
-};
-
-function disableCali() {
-    document.getElementById("caliDiv").classList.add("disabled");
-    document.getElementById("caliButton").classList.remove("disabled");
-};
-
-function enableWhite() {
-    document.getElementById("whiteDiv").classList.remove("disabled");
-    document.getElementById("whiteButton").classList.add("disabled");
-};
-
-function enableCali() {
-    document.getElementById("caliDiv").classList.remove("disabled");
-    document.getElementById("caliButton").classList.add("disabled");
-};
-
 function changeSelection(toWhat) {
-    if (toWhat === "white") {
-        enableWhite();
-        disableCali();
+    if (toWhat === "white rice") {
+        document.getElementById("whiteDiv").classList.remove("disabled");
+        document.getElementById("caliDiv").classList.add("disabled");
     } else {
-        disableWhite();
-        enableCali();
+        document.getElementById("whiteDiv").classList.add("disabled");
+        document.getElementById("caliDiv").classList.remove("disabled");
     }
 };
 
-function swapWhite() {
-    changeSelection("white");
-};
-
-function swapCali() {
-    changeSelection();
+function dropdownChangeRice() {
+    changeSelection(document.getElementById("riceSelector").value);
 };
 
 function washNumber(washable) {
