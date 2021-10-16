@@ -21,3 +21,7 @@ body div {
   padding: 1rem;
   margin: 1rem;
 }
+
+li {
+  margin-bottom: 0.5rem;
+}
