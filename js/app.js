@@ -52,6 +52,10 @@ function updateAmount() {
         rice = 1;
     } else {
         rice = Number(rice);
+
+        if (rice > 999) {
+            rice = 999;
+        }
     }
 
     updateWhite(rice);
