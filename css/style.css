@@ -11,3 +11,7 @@ div.disabled {
 button.disabled {
   background-color: gray;
 }
+
+#amountInput {
+  width: 3rem;
+}
