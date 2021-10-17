@@ -1,6 +1,7 @@
 const { src, dest, series } = require(`gulp`);
 const htmlValidator = require(`gulp-html`);
 const htmlCompressor = require(`gulp-htmlmin`);
+const jsLinter = require(`gulp-eslint`);
 
 let validateHTML = () => {
     return src([`html/*.html`, `html/**/*.html`]).pipe(htmlValidator());
@@ -12,6 +13,12 @@ let compressHTML = () => {
         .pipe(dest(`prod`));
 };
 
+let lintJS = () => {
+    return src(`../apps/*.js`)
+        .pipe(jsLinter())
+        .pipe(jsLinter.formatEach(`compact`));
+};
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.HTMLProcessing = series(validateHTML, compressHTML);
+exports.lintJS = lintJS;
