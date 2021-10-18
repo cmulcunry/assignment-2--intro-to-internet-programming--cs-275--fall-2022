@@ -11,11 +11,11 @@ const WHITEWATER = document.getElementById(`whiteWater`);
 
 let updateQuantities = () => {
     let x = QUANTITY.value;
-    CALIRICE.innerHTML = `${x}`;
-    CALIWATER.innerHTML = `${1.6*x}`;
-    CALISOFTWATER.innerHTML = `${0.4*x}`;
-    WHITERICE.innerHTML = `${x}`;
-    WHITEWATER.innerHTML = `${2*x}`;
+    CALIRICE.innerHTML = `${Math.round(x)}`;
+    CALIWATER.innerHTML = `${Math.round(1.6*x)}`;
+    CALISOFTWATER.innerHTML = `${Math.round(0.4*x)}`;
+    WHITERICE.innerHTML = `${Math.round(x)}`;
+    WHITEWATER.innerHTML = `${Math.round(2*x)}`;
 };
 
 SELECT.addEventListener(`click`, () => {toggleSelect();});
