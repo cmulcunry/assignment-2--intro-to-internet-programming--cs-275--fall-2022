@@ -20,7 +20,7 @@ let compressHTML = () => {
 };
 
 let compileCSSForDev = () => {
-    return src(`../css/style.css`)
+    return src(`css/style.css`)
         .pipe(sass.sync({
             outputStyle: `expanded`,
             precision: 10
@@ -29,13 +29,13 @@ let compileCSSForDev = () => {
 };
 
 let lintJS = () => {
-    return src(`../js/*.js`)
+    return src(`js/*.js`)
         .pipe(jsLinter())
         .pipe(jsLinter.formatEach(`compact`));
 };
 
 let transpileJSForDev = () => {
-    return src(`../js/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(dest(`temp/scripts`));
 };
