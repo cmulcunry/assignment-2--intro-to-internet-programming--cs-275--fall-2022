@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
   background-color: #212121;
   color: white;
   line-height: 1rem;
@@ -10,9 +12,15 @@
   font-size: 1.3rem;
 }
 
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
 select {
   text-align: left;
   font-size: 1.1rem;
+  margin-bottom: 1em;
 }
 
 input {
