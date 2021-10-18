@@ -1,14 +1,13 @@
-body {
-  background-color: white;
-  line-height: 1rem;
-  font-family: serif;
-  font-size: 1.3rem;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: left;
+  margin: 10%;
+  background-color: #212121;
+  color: white;
+  line-height: 1rem;
+  font-family: serif;
+  font-size: 1.3rem;
 }
 
 select {
