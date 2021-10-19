@@ -1,6 +1,7 @@
 html {
     background-color: #323232; /*Grey/neutral background color */
     color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 
   header {
@@ -13,11 +14,35 @@ html {
     font-size: 20px;
   }
 
+  body {
+
+
+  }
+
   main {
     text-align: center;
 
   }
 
-  #nav {
 
+  button { /* change to nav later */
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #323232;
+    box-sizing: border-box;
+    margin:16px;
+    border:0.1rem solid #FFFFFF;
+    padding:1em;
+  }
+
+  button:hover {
+      border-color: #4eb5f1;
+      background-color: #FFFFFF;
+      color: #323232;
+
+  }
+
+  #riceAmount {
+    width: 2.5em;
+    padding: 0.5em;
   }
