@@ -22,7 +22,8 @@ h1 {
 div {
   position: relative;
   top: 5rem;
-  width: 49%;
+  width: 50%;
+  line-height: 1.3rem;
 }
 
 select {
