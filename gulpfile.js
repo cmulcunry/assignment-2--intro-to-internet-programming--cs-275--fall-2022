@@ -85,7 +85,7 @@ let transpileJSForProd = () => {
         .pipe(dest(`prod/js`));
 };
 
-let serve = () => {
+let dev = () => {
     browserSync({
         notify: true,
         reloadDelay: 50,
@@ -165,14 +165,14 @@ let compressCSS = () => {
         .pipe(dest(`prod`));
 };
 
-exports.brave = series(brave, serve);
-exports.chrome = series(chrome, serve);
-exports.edge = series(edge, serve);
-exports.firefox = series(firefox, serve);
-exports.opera = series(opera, serve);
-exports.safari = series(safari, serve);
-exports.vivaldi = series(vivaldi, serve);
-exports.allBrowsers = series(allBrowsers, serve);
+exports.brave = series(brave, dev);
+exports.chrome = series(chrome, dev);
+exports.edge = series(edge, dev);
+exports.firefox = series(firefox, dev);
+exports.opera = series(opera, dev);
+exports.safari = series(safari, dev);
+exports.vivaldi = series(vivaldi, dev);
+exports.allBrowsers = series(allBrowsers, dev);
 exports.validateHTML = validateHTML;
 exports.lintJS = lintJS;
 exports.transpileJSForDev = transpileJSForDev;
@@ -182,11 +182,11 @@ exports.compressCSS = compressCSS;
 exports.clean = clean;
 exports.default = listTasks;
 exports.lintCSS = lintCSS;
-exports.serve = series(
+exports.dev = series(
     validateHTML,
     lintJS,
     transpileJSForDev,
-    serve
+    dev
 );
 exports.build = series(
     compressHTML,
