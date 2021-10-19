@@ -19,7 +19,7 @@ window.onload = function() {
 };
 
 function returnAmountOfWater() {
-    let ricefloat = parseFloat(ricetextbox.value);
+    let ricefloat = Math.ceil(ricetextbox.value);
 
     if (ricefloat < 0) {
         alert(`Amount of rice can't be negative. Please enter another value.`);

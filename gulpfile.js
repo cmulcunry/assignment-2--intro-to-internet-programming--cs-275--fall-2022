@@ -77,7 +77,7 @@ let transpileJSForProd = () => {
     return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
-        .pipe(dest(`prod/js`));
+        .pipe(dest(`prod`));
 
 };
 
@@ -146,14 +146,15 @@ let serve = () => {
         server: {
             baseDir: [
                 `temp`,
-                `dev`,
-                `html`
+                `css`,
+                `html`,
+                `js`
             ]
         }
     });
 
     watch(`js/*.js`,
-        series(lintJS, transpileJSForDev)
+        series(transpileJSForDev, lintJS)
     ).on(`change`, reload);
 
 
@@ -162,7 +163,7 @@ let serve = () => {
     ).on(`change`, reload);
 
     watch(`css/**/*.css`,
-        series(validateHTML)
+        series(validateCSS, lintCSS)
     ).on(`change`, reload);
 
     watch(`img/**/*`).on(`change`, reload);
