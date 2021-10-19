@@ -1,16 +1,16 @@
-let caliRiceRecipe = document.getElementById(`caliRiceRecipe`);
-let whiteRiceRecipe = document.getElementById(`whiteRiceRecipe`);
+let caliRiceRecipe = document.getElementById(`cali-rice-recipe`);
+let whiteRiceRecipe = document.getElementById(`white-rice-recipe`);
 
-document.getElementById(`caliButton`).onclick = () => {
+document.getElementById(`cali-Button`).onclick = () => {
     caliRiceRecipe.style.display = `block`;
     whiteRiceRecipe.style.display = `none`;
 }
-document.getElementById(`whiteButton`).onclick = () => {
+document.getElementById(`white-Button`).onclick = () => {
     caliRiceRecipe.style.display = `none`;
     whiteRiceRecipe.style.display = `block`;
 }
 
-let ricetextbox = document.getElementById(`ricetextbox`);
+let ricetextbox = document.getElementById(`rice-text-box`);
 
 window.onload = function() {
     ricetextbox.addEventListener("keyup", returnAmountOfWater);
@@ -25,11 +25,11 @@ function returnAmountOfWater() {
         alert(`Amount of rice can't be negative. Please enter another value.`);
     } else {
         if (caliRiceRecipe.style.display==`none`) {
-            document.getElementById(`cupsofrice`).innerHTML = ricefloat;
-            document.getElementById(`cupsofwater`).innerHTML = ricefloat * 2;
+            document.getElementById(`cups-of-rice`).innerHTML = ricefloat;
+            document.getElementById(`cups-of-water`).innerHTML = ricefloat * 2;
         } else {
-            document.getElementById(`calicupsofrice`).innerHTML = ricefloat;
-            document.getElementById(`calicupsofwater`).innerHTML = ricefloat * 1.6;
+            document.getElementById(`cali-cups-of-rice`).innerHTML = ricefloat;
+            document.getElementById(`cali-cups-of-water`).innerHTML = ricefloat * 1.6;
         }
     }
 }
