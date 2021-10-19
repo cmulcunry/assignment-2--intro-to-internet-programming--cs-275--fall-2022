@@ -11,17 +11,19 @@ function display()
     if (currentRice == `white`)
     {
         displayRice.textContent = `Combine ` + amount +  ` cups of rice with `
-        + (amount*2) + ` cups of water and 1 Tbsp olive oil. Bring to a boil, then
-        reduce heat to the lowest setting. Cook for about 18 minutes.`;
+        + (amount*2) + ` cups of water and 1 Tbsp olive oil.
+        Bring to a boil, then reduce heat to the lowest setting.
+        Cook for about 18 minutes.`;
     }
     else if (currentRice == `cali`)
     {
-        displayRice.textContent =  `For slightly al dente rice:
+        displayRice.textContent = `For slightly al dente rice:
         Combine ` + amount +` cups of rice with `+ Math.round((amount*1.6)*100)/100 +
-        ` cups of water or broth and 1 Tbsp olive oil. Bring to a boil and stir once
-        to mix. Reduce heat to low, cover with a tight-fitting lid and cook for
-        25 minutes. Remove from heat and let stand for 5 minutes.
-        Fluff with a fork and serve.
+        ` cups of water or broth and 1 Tbsp olive oil.
+        Bring to a boil and stir once to mix.
+        Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.
+        Remove from heat and let stand for 5 minutes.
+        Fluff with a fork and serve. \n
 
         For softer rice:
         Increase liquid by 1/2 cup and cook time by 5 minutes.`;
@@ -30,14 +32,16 @@ function display()
 
 let whiteRice = `Combine ` + amount +  ` cups of rice with `
 + (amount*2) + ` cups of water and 1 Tbsp olive oil.
-Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.`;
+Bring to a boil, then reduce heat to the lowest setting.
+Cook for about 18 minutes.`;
 
 let caliRice = `For slightly al dente rice:
 Combine ` + amount +` cups of rice with `+ Math.round((amount*1.6)*100)/100 +
-` cups of water or broth and 1 Tbsp olive oil. Bring to a boil and stir once
-to mix. Reduce heat to low, cover with a tight-fitting lid and cook for
-25 minutes. Remove from heat and let stand for 5 minutes.
-Fluff with a fork and serve.
+` cups of water or broth and 1 Tbsp olive oil.
+Bring to a boil and stir once to mix.
+Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.
+Remove from heat and let stand for 5 minutes.
+Fluff with a fork and serve. \n
 
 For softer rice:
 Increase liquid by 1/2 cup and cook time by 5 minutes.`;
