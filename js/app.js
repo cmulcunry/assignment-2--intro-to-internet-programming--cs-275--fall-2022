@@ -19,7 +19,7 @@ let updateQuantities = () => {
 };
 
 SELECT.addEventListener(`click`, () => {toggleSelect();});
-//INPUT.oninput(updateQuantities());
+INPUT.addEventListener(`input`,() => {updateQuantities();});
 
 let toggleSelect = () => {
     if(SELECT.selectedOptions[0].value === `California Sprouted Rice`) {
