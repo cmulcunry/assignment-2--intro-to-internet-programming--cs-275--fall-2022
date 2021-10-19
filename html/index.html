@@ -16,33 +16,36 @@
     <h2>ROY VENEGAS and the CS BUNCH</h2>
     <h3>PRESENTS:</h3>
   </div>
-  <div id="inputDiv">
-    how to make
-    <input id="amountInput" type="number" value="1" min="0" max="999" oninput="updateAmount()">
-    cup(s) of
-    <select id="riceSelector" onchange="dropdownChangeRice()">
-      <option>white rice</option>
-      <option>california rice</option>
-    </select>
-  </div>
-  <div id="whiteDiv">
-    <ol>
-      <li>Combine <span id="whiteRice">1 cup</span> of rice with <span id="whiteWater">2 cups</span> of water and 1 Tbsp olive oil.</li>
-      <li>Bring to a boil.</li>
-      <li>Reduce heat to the lowest setting. Cook for about 18 minutes.</li>
-    </ol>
-  </div>
-  <div id="caliDiv" class="disabled">
-    <p>For slightly al dente rice:</p>
-    <ol>
-      <li>Combine <span id="caliRice">1 1/4 cups</span> of rice with <span id="caliWater">2 cups</span> of water or broth and 1 Tbsp olive oil.</li>
-      <li>Bring to a boil and stir once to mix.</li>
-      <li>Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</li>
-      <li>Remove from heat and let stand for 5 minutes.</li>
-      <li>Fluff with a fork and serve.</li>
-    </ol>
-    <p>For softer rice:</p>
-    <p>Increase liquid by 1/2 cup and cook time by 5 minutes.</p>
+  <div id="mainContentDiv">
+    <div id="inputDiv">
+      how to make
+      <input id="amountInput" type="number" value="1" min="0" max="999" oninput="updateAmount()">
+      cup(s) of
+      <select id="riceSelector" onchange="dropdownChangeRice()">
+        <option>white rice</option>
+        <option>california rice</option>
+      </select>
+    </div>
+    <div id="whiteDiv">
+      To make white rice:
+      <ol>
+        <li>Combine <span id="whiteRice">1 cup</span> of rice with <span id="whiteWater">2 cups</span> of water and 1 Tbsp olive oil.</li>
+        <li>Bring to a boil.</li>
+        <li>Reduce heat to the lowest setting. Cook for about 18 minutes.</li>
+      </ol>
+    </div>
+    <div id="caliDiv" class="disabled">
+      For slightly al dente rice:
+      <ol>
+        <li>Combine <span id="caliRice">1 1/4 cups</span> of rice with <span id="caliWater">2 cups</span> of water or broth and 1 Tbsp olive oil.</li>
+        <li>Bring to a boil and stir once to mix.</li>
+        <li>Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</li>
+        <li>Remove from heat and let stand for 5 minutes.</li>
+        <li>Fluff with a fork and serve.</li>
+      </ol>
+      <p>For softer rice:</p>
+      <p>Increase liquid by 1/2 cup and cook time by 5 minutes.</p>
+    </div>
   </div>
 </body>
 </html>
