@@ -20,14 +20,14 @@ body div div {
   background-color: rgb(60, 60, 60);
 }
 
-#inputDiv {
+#input-div {
   text-align: center;
   padding-top: 1.5rem;
   margin-bottom: 0;
 }
 
-#caliDiv,
-#whiteDiv {
+#cali-div,
+#white-div {
   margin-top: 0;
 }
 
@@ -40,19 +40,19 @@ li {
   margin-bottom: .5rem;
 }
 
-#amountInput {
+#amount-input {
   width: 3rem;
 }
 
-#titleDiv {
+#title-div {
   text-align: center;
 }
 
-#titleDiv h3 {
+#title-div h3 {
   margin-top: 0;
 }
 
-#mainContentDiv {
+#main-content-div {
   align-items: center;
   display: flex;
   flex-direction: column;

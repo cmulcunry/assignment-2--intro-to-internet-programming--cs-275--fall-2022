@@ -5,16 +5,16 @@ function init() {
 
 function changeSelection(toWhat) {
     if (toWhat === `white rice`) {
-        document.getElementById(`whiteDiv`).classList.remove(`disabled`);
-        document.getElementById(`caliDiv`).classList.add(`disabled`);
+        document.getElementById(`white-div`).classList.remove(`disabled`);
+        document.getElementById(`cali-div`).classList.add(`disabled`);
     } else {
-        document.getElementById(`whiteDiv`).classList.add(`disabled`);
-        document.getElementById(`caliDiv`).classList.remove(`disabled`);
+        document.getElementById(`white-div`).classList.add(`disabled`);
+        document.getElementById(`cali-div`).classList.remove(`disabled`);
     }
 }
 
 function dropdownChangeRice() {
-    changeSelection(document.getElementById(`riceSelector`).value);
+    changeSelection(document.getElementById(`rice-selector`).value);
 }
 
 function washNumber(washable) {
@@ -46,7 +46,7 @@ function washNumber(washable) {
 }
 
 function updateAmount() {
-    let rice = document.getElementById(`amountInput`).value;
+    let rice = document.getElementById(`amount-input`).value;
 
     if (isNaN(rice) || Number(rice) < 0) {
         rice = 1;
@@ -66,14 +66,14 @@ function updateWhite(rice) {
     const RICE_TEXT = `${washNumber(rice)} ${rice === 1 ? `cup` : `cups`}`;
     const WATER_TEXT = `${washNumber(rice * 2)} ${rice * 2 === 1 ? `cup` : `cups`}`;
 
-    document.getElementById(`whiteRice`).innerHTML = RICE_TEXT;
-    document.getElementById(`whiteWater`).innerHTML = WATER_TEXT;
+    document.getElementById(`white-rice`).innerHTML = RICE_TEXT;
+    document.getElementById(`white-water`).innerHTML = WATER_TEXT;
 }
 
 function updateCali(rice) {
     const RICE_TEXT = `${washNumber(rice)} ${rice === 1 ? `cup` : `cups`}`;
     const WATER_TEXT = `${washNumber(rice * 8 / 5)} ${washNumber(rice * 8 / 5) === `1` ? `cup` : `cups`}`;
 
-    document.getElementById(`caliRice`).innerHTML = RICE_TEXT;
-    document.getElementById(`caliWater`).innerHTML = WATER_TEXT;
+    document.getElementById(`cali-rice`).innerHTML = RICE_TEXT;
+    document.getElementById(`cali-water`).innerHTML = WATER_TEXT;
 }
