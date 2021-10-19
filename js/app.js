@@ -35,4 +35,4 @@ window.onload = () =>
 
     SELECT.addEventListener(`click`, () => {toggleSelect();});
     INPUT.addEventListener(`input`,() => {updateQuantities();});
-}
+};
