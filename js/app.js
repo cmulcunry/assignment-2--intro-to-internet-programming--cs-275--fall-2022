@@ -1,6 +1,6 @@
 const WHITE = document.getElementById(`white`);
 const CALIFORNIA = document.getElementById(`california`);
-const QUANTITY = document.getElementById(`input`);
+const INPUT = document.getElementById(`input`);
 const SELECT = document.getElementById(`select`);
 const RICETYPE = document.getElementById(`riceType`);
 const CALIRICE = document.getElementById(`caliRice`);
@@ -10,7 +10,7 @@ const WHITERICE = document.getElementById(`whiteRice`);
 const WHITEWATER = document.getElementById(`whiteWater`);
 
 let updateQuantities = () => {
-    let x = QUANTITY.value;
+    let x = INPUT.value;
     CALIRICE.innerHTML = `${Math.round(x*2)/2}`;
     CALIWATER.innerHTML = `${Math.round(1.6*x)}`;
     CALISOFTWATER.innerHTML = `${Math.round(0.4*x)}`;
@@ -19,7 +19,7 @@ let updateQuantities = () => {
 };
 
 SELECT.addEventListener(`click`, () => {toggleSelect();});
-//QUANTITY.addEventListener(`change`, updateQuantities());
+//INPUT.oninput(updateQuantities());
 
 let toggleSelect = () => {
     if(SELECT.selectedOptions[0].value === `California Sprouted Rice`) {
