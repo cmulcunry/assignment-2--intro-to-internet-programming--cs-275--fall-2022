@@ -105,8 +105,9 @@ let serve = () => {
         server: {
             baseDir: [
                 `temp`,
-                `dev`,
-                `dev/html`
+                `html`,
+                `css`,
+                `js`
             ]
         }
     });
@@ -139,7 +140,7 @@ async function listTasks () {
 }
 
 let lintCSS = () => {
-    return src(`css/**/*.css`)
+    return src(`css/*.css`)
         .pipe(CSSLinter({
             failAfterError: false,
             reporters: [
