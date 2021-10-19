@@ -1,23 +1,23 @@
 body {
-  background-color: rgb(20,20,20);
-  color: rgb(220,220,220);
+  background-color: rgb(20, 20, 20);
+  color: rgb(220, 220, 220);
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 30rem;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   font-family: 'PT Serif', serif;
 }
 
 body div {
-  background-color: rgb(40,40,40);
+  background-color: rgb(40, 40, 40);
   padding: 1rem;
   margin: 1rem;
   width: 90%;
 }
 
 body div div {
-  background-color: rgb(60,60,60);
+  background-color: rgb(60, 60, 60);
 }
 
 #inputDiv {
@@ -31,13 +31,13 @@ body div div {
   margin-top: 0;
 }
 
-div.disabled {
+.disabled {
   visibility: hidden;
   position: fixed;
 }
 
 li {
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 #amountInput {
@@ -49,7 +49,7 @@ li {
 }
 
 #titleDiv h3 {
-  margin-top: 0rem
+  margin-top: 0;
 }
 
 #mainContentDiv {
