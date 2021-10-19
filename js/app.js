@@ -3,12 +3,11 @@ window.onload = () => {
         CALIFORNIA = document.getElementById(`california`),
         INPUT = document.getElementById(`input`),
         SELECT = document.getElementById(`select`),
-        RICETYPE = document.getElementById(`riceType`),
-        CALIRICE = document.getElementById(`caliRice`),
-        CALIWATER = document.getElementById(`caliWater`),
-        CALISOFTWATER = document.getElementById(`caliSoftWater`),
-        WHITERICE = document.getElementById(`whiteRice`),
-        WHITEWATER = document.getElementById(`whiteWater`);
+        CALIRICE = document.getElementById(`cali-rice`),
+        CALIWATER = document.getElementById(`cali-water`),
+        CALISOFTWATER = document.getElementById(`cali-soft-water`),
+        WHITERICE = document.getElementById(`white-rice`),
+        WHITEWATER = document.getElementById(`white-water`);
 
     let updateQuantities = () => {
         let x = INPUT.value;
@@ -23,12 +22,10 @@ window.onload = () => {
         if(SELECT.selectedOptions[0].value === `California Sprouted Rice`) {
             CALIFORNIA.style.display = `block`;
             WHITE.style.display = `none`;
-            RICETYPE.innerHTML = `California Sprouted`;
         }
         else if(SELECT.selectedOptions[0].value === `White Rice`) {
             CALIFORNIA.style.display = `none`;
             WHITE.style.display = `block`;
-            RICETYPE.innerHTML = `White`;
         }
     };
 
