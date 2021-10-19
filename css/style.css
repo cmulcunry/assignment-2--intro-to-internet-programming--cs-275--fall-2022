@@ -20,7 +20,7 @@ h1 {
 }
 
 #displayRice {
-  white-space: pre-wrap;
+  width: 400px;
 }
 
 button {

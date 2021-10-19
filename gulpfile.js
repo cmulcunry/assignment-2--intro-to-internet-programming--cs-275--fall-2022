@@ -74,6 +74,7 @@ let lintCSS = () => {
             ]
       }));
 };
+
 let serve = () => {
     browserSync({
         notify: true,

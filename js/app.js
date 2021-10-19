@@ -10,14 +10,16 @@ function display()
     amount = document.getElementById(`amount`).value;
     if (currentRice == `white`)
     {
-        displayRice.textContent = `Combine ` + amount +  ` cups of rice with `
+        displayRice.innerHTML =
+        `Combine ` + amount +  ` cups of rice with `
         + (amount*2) + ` cups of water and 1 Tbsp olive oil.
         Bring to a boil, then reduce heat to the lowest setting.
         Cook for about 18 minutes.`;
     }
     else if (currentRice == `cali`)
     {
-        displayRice.textContent = `For slightly al dente rice:
+        displayRice.innerHTML =
+        `For slightly al dente rice:
         Combine ` + amount +` cups of rice with `+ Math.round((amount*1.6)*100)/100 +
         ` cups of water or broth and 1 Tbsp olive oil.
         Bring to a boil and stir once to mix.
@@ -30,12 +32,14 @@ function display()
     }
 }
 
-let whiteRice = `Combine ` + amount +  ` cups of rice with `
+let whiteRice =
+`Combine ` + amount +  ` cups of rice with `
 + (amount*2) + ` cups of water and 1 Tbsp olive oil.
 Bring to a boil, then reduce heat to the lowest setting.
 Cook for about 18 minutes.`;
 
-let caliRice = `For slightly al dente rice:
+let caliRice =
+`For slightly al dente rice:
 Combine ` + amount +` cups of rice with `+ Math.round((amount*1.6)*100)/100 +
 ` cups of water or broth and 1 Tbsp olive oil.
 Bring to a boil and stir once to mix.
