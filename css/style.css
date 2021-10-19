@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-content: left;
-  margin-left: 18%;
-  margin-right: 18%;
+  align-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 2%;
   background-color: #212121;
   color: white;
@@ -14,15 +14,16 @@
 }
 
 h1 {
+  margin-top: 1%;
+  padding-bottom: 2%;
   text-align: center;
   font-size: 3rem;
   position: absolute;
 }
 
-div {
-  position: relative;
-  top: 5rem;
-  width: 50%;
+.main {
+  margin-top: 7%;
+  left: 50%;
   line-height: 1.3rem;
 }
 
@@ -37,8 +38,4 @@ input {
 
 .white {
   display: none;
-}
-
-.recipe {
-  flex: 1 1 auto;
 }
