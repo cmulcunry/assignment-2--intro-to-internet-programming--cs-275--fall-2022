@@ -9,17 +9,15 @@
 </head>
 <body class="container">
   <h1> Rice Recipes </h1>
-  <div>
-    <select id="select">
-      <option> --select a type of rice-- </option>
-      <option> California Sprouted Rice </option>
-      <option> White Rice </option>
-    </select>
-  </div>
   <div id="quantity">
     <label for="input">To make</label>
     <input type="number" oninput="updateQuantities()" id="input">
-    <label for="input" id = "label2">cups of <span id="riceType"> California Sprouted </span> Rice</label>
+    <label for="input" id = "label2">cups of
+      <select id="select">
+        <option> California Sprouted Rice </option>
+        <option> White Rice </option>
+      </select>
+    </label>
   </div>
   <div class="california recipe" id="california">
     <p> For slightly al dente rice: </p>
