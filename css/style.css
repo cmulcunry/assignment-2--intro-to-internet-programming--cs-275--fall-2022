@@ -16,6 +16,10 @@ body div {
   width: 90%;
 }
 
+body div div {
+  background-color: rgb(60,60,60);
+}
+
 #inputDiv {
   text-align: center;
   margin-bottom: 0;
