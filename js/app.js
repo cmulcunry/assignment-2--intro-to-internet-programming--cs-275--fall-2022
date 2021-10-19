@@ -1,5 +1,4 @@
-window.onload = () =>
-{
+window.onload = () => {
     const WHITE = document.getElementById(`white`),
         CALIFORNIA = document.getElementById(`california`),
         INPUT = document.getElementById(`input`),
