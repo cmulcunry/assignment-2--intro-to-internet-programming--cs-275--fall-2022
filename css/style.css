@@ -20,6 +20,8 @@ h1 {
 }
 
 #displayRice {
+  border-top: 1px solid #ccc;
+  padding-top: 8px;
   width: 400px;
 }
 
