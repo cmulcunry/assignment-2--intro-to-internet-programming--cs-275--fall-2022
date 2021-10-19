@@ -18,9 +18,6 @@ let updateQuantities = () => {
     WHITEWATER.innerHTML = `${Math.round(2*x)}`;
 };
 
-SELECT.addEventListener(`click`, () => {toggleSelect();});
-INPUT.addEventListener(`input`,() => {updateQuantities();});
-
 let toggleSelect = () => {
     if(SELECT.selectedOptions[0].value === `California Sprouted Rice`) {
         CALIFORNIA.style.display = `block`;
@@ -33,3 +30,6 @@ let toggleSelect = () => {
         RICETYPE.innerHTML = `White`;
     }
 };
+
+SELECT.addEventListener(`click`, () => {toggleSelect();});
+INPUT.addEventListener(`input`,() => {updateQuantities();});
