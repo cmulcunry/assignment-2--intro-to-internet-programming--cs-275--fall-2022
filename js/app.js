@@ -5,15 +5,19 @@ window.onload = () => {
     let caliRecipe = document.getElementById(`caliRecipe`);
     let error = document.getElementById(`error`);
     let currentRice = `white`;
+    error.style.display = `none`;
+    caliRecipe.style.display = `none`;
 
     function setWhiteRice(cup) {
         document.getElementById(`cup`).textContent = cup;
-        document.getElementById(`whiteWater`).textContent = Math.round((cup * 2)*100)/100;
+        document.getElementById(`whiteWater`).textContent =
+        Math.round((cup * 2)*100)/100;
     }
 
     function setCaliRice(cup) {
         document.getElementById(`cups`).textContent = cup;
-        document.getElementById(`caliWater`).textContent = Math.round((cup * 1.6)*100)/100;
+        document.getElementById(`caliWater`).textContent =
+        Math.round((cup * 1.6)*100)/100;
     }
 
     function isNumeric(str) {
@@ -26,19 +30,19 @@ window.onload = () => {
     document.getElementById(`givenCups`).addEventListener(`keyup`, listener, false);
     function listener()  {
         let cup = document.getElementById(`givenCups`).value;
-        error.classList.add(`relativeFixed`);
+        error.style.display = `none`;
         if (!isNumeric(cup)) {
-            error.classList.remove(`relativeFixed`);
-            whiteRecipe.classList.add(`relativeFixed`);
-            caliRecipe.classList.add(`relativeFixed`);
+            error.style.display = `block`;
+            whiteRecipe.style.display = `none`;
+            caliRecipe.style.display = `none`;
         } else {
             if (currentRice === `white`) {
-                caliRecipe.classList.add(`relativeFixed`);
-                whiteRecipe.classList.remove(`relativeFixed`);
+                caliRecipe.style.display = `none`;
+                whiteRecipe.style.display = `block`;
                 setWhiteRice(cup);
             } else if (currentRice === `cali`) {
-                whiteRecipe.classList.add(`relativeFixed`);
-                caliRecipe.classList.remove(`relativeFixed`);
+                whiteRecipe.style.display = `none`;
+                caliRecipe.style.display = `block`;
                 setCaliRice(cup);
             }
         }
@@ -47,21 +51,15 @@ window.onload = () => {
     whiteRice.onclick = () => {
         currentRice = `white`;
         listener();
-        whiteRice.style.background=`#bd8f97`;
-        whiteRice.style.color=`white`;
-        whiteRice.style.border=`1px solid white`;
-        caliRice.style.border=`none`;
-        caliRice.style.background=`grey`;
+        whiteRice.classList.add(`buttonClicked`);
+        caliRice.classList.remove(`buttonClicked`);
     };
 
     caliRice.onclick = () => {
         currentRice = `cali`;
         listener();
-        caliRice.style.background=`#bd8f97`;
-        caliRice.style.color=`white`;
-        caliRice.style.border=`1px solid white`;
-        whiteRice.style.border=`none`;
-        whiteRice.style.background=`grey`;
+        caliRice.classList.add(`buttonClicked`);
+        whiteRice.classList.remove(`buttonClicked`);
     };
 
     const END = document.getElementById(`givenCups`).value.length;
