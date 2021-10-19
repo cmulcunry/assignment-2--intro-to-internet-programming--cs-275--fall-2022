@@ -4,12 +4,17 @@ body {
   color: white;
 }
 
+header {
+  text-align: center;
+  background-color: #1c1e21;
+  margin-top: -48px;
+  margin-left: -16px;
+  margin-right: -16px;
+}
+
 h1 {
   font-family: Merriweather, sans-serif;
   font-size: 64px;
-  text-align: center;
-  background-color: #1c1e21;
-  margin: -16px;
 }
 
 h2 {
