@@ -1,0 +1,23 @@
+html {
+    background-color: #323232; /*Grey/neutral background color */
+    color: white;
+  }
+
+  header {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+  }
+
+  main {
+    text-align: center;
+
+  }
+
+  #nav {
+
+  }

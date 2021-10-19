@@ -1,5 +1,5 @@
 window.onload = () => {
-    console.log("The type of name is " + (typeof name));
+    console.log(`The type of name is ` + (typeof name));
 
 
     alert(`X is ${x}`);
