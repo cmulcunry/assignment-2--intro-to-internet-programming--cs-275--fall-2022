@@ -9,6 +9,47 @@ const reload = browserSync.reload;
 
 let browserChoice = `default`;
 
+async function brave () {
+    browserChoice = `brave browser`;
+}
+
+async function chrome () {
+    browserChoice = `google chrome`;
+}
+
+async function edge () {
+    // In Windows, the value might need to be “microsoft-edge”. Note the dash.
+    browserChoice = `microsoft edge`;
+}
+
+async function firefox () {
+    browserChoice = `firefox`;
+}
+
+async function opera () {
+    browserChoice = `opera`;
+}
+
+async function safari () {
+    browserChoice = `safari`;
+}
+
+async function vivaldi () {
+    browserChoice = `vivaldi`;
+}
+
+async function allBrowsers () {
+    browserChoice = [
+        `brave browser`,
+        `google chrome`,
+        `microsoft edge`, // Note: In Windows, this might need to be microsoft-edge
+        `firefox`,
+        `opera`,
+        `safari`,
+        `vivaldi`
+    ];
+}
+
 let validateHTML = () => {
     return src([`html/*.html`, `html/**/*.html`]).pipe(htmlValidator());
 };
@@ -48,24 +89,29 @@ let serve = () => {
         server: {
             baseDir: [
                 `temp`,
-                `dev`,
-                `dev/html`
+                `html`
             ]
         }
     });
 
-    watch(`dev/scripts/*.js`, series(lintJS, transpileJSForDev))
+    watch(`js/*.js`, series(lintJS, transpileJSForDev))
         .on(`change`, reload);
 
-    watch(`dev/styles/scss/**/*.scss`, compileCSSForDev)
+    watch(`css/style.css`, compileCSSForDev)
         .on(`change`, reload);
 
-    watch(`dev/html/**/*.html`, validateHTML)
-        .on(`change`, reload);
-
-    watch(`dev/img/**/*`)
+    watch(`html/*.html`, validateHTML)
         .on(`change`, reload);
 };
+
+exports.brave = series(brave, serve);
+exports.chrome = series(chrome, serve);
+exports.edge = series(edge, serve);
+exports.firefox = series(firefox, serve);
+exports.opera = series(opera, serve);
+exports.safari = series(safari, serve);
+exports.vivaldi = series(vivaldi, serve);
+exports.allBrowsers = series(allBrowsers, serve);
 exports.validateHTML = validateHTML;
 exports.compressHTML = compressHTML;
 exports.HTMLProcessing = series(validateHTML, compressHTML);
