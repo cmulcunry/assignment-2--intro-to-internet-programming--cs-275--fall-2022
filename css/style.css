@@ -4,13 +4,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30rem;
+  max-width: 30rem;
 }
 
 body div {
   background-color: rgb(40,40,40);
   padding: 1rem;
   margin: 1rem;
+  width: 90%;
+}
+
+#inputDiv {
+  text-align: center;
 }
 
 div.disabled {
