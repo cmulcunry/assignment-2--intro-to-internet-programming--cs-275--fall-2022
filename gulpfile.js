@@ -1,4 +1,5 @@
 const { src, dest, series, watch } = require(`gulp`),
+    CSSCompressor = require(`gulp-clean-css`),
     CSSLinter = require(`gulp-stylelint`),
     del = require(`del`),
     babel = require(`gulp-babel`),
@@ -158,6 +159,12 @@ let lintCSS = () => {
         }));
 };
 
+let compressCSS = () => {
+    return src(`css/**/*.css`)
+        .pipe(CSSCompressor())
+        .pipe(dest(`prod`));
+};
+
 exports.brave = series(brave, serve);
 exports.chrome = series(chrome, serve);
 exports.edge = series(edge, serve);
@@ -171,6 +178,7 @@ exports.lintJS = lintJS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.compressHTML = compressHTML;
 exports.transpileJSForProd = transpileJSForProd;
+exports.compressCSS = compressCSS;
 exports.clean = clean;
 exports.default = listTasks;
 exports.lintCSS = lintCSS;
@@ -182,5 +190,6 @@ exports.serve = series(
 );
 exports.build = series(
     compressHTML,
-    transpileJSForProd
+    transpileJSForProd,
+    compressCSS
 );
