@@ -4,10 +4,9 @@ const { src, dest, series, watch } = require(`gulp`),
     babel = require(`gulp-babel`),
     htmlCompressor = require(`gulp-htmlmin`),
     htmlValidator = require(`gulp-html`),
-    imageCompressor = require(`gulp-image`),
     jsCompressor = require(`gulp-uglify`),
     jsLinter = require(`gulp-eslint`),
-    sass = require(`gulp-sass`)(require(`sass`)),
+    // sass = require(`gulp-sass`)(require(`sass`)),
     browserSync = require(`browser-sync`),
     reload = browserSync.reload;
 
@@ -56,79 +55,64 @@ async function allBrowsers () {
 
 let validateHTML = () => {
     return src([
-        `dev/html/*.html`,
-        `dev/html/**/*.html`])
-        .pipe(htmlValidator(undefined));
+        `html/*.html`,
+        `html/**/*.html`])
+        .pipe(htmlValidator());
 };
 
+/*
 let compileCSSForDev = () => {
-    return src(`dev/styles/scss/main.scss`)
-        .pipe(sass.sync({
-            outputStyle: `expanded`,
-            precision: 10
-        }).on(`error`, sass.logError))
-        .pipe(dest(`temp/styles`));
+    return src(`css/*.css`)
+    .pipe(cssCompressor())
+    .pipe(dest(`prod`));
 };
+*/
 
 let lintJS = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(jsLinter())
         .pipe(jsLinter.formatEach(`compact`));
 };
 
 let transpileJSForDev = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(dest(`temp/scripts`));
 };
 
 let compressHTML = () => {
-    return src([`dev/html/*.html`,`dev/html/**/*.html`])
+    return src([`html/*.html`,`html/**/*.html`])
         .pipe(htmlCompressor({collapseWhitespace: true}))
         .pipe(dest(`prod`));
 };
 
+/*
 let compileCSSForProd = () => {
-    return src(`dev/styles/scss/main.scss`)
-        .pipe(sass.sync({
+    return src(`css/style.css`)
+        .pipe(css.sync({
             outputStyle: `compressed`,
             precision: 10
-        }).on(`error`, sass.logError))
+        }).on(`error`, css.logError))
         .pipe(dest(`prod/styles`));
 };
+*/
 
 let transpileJSForProd = () => {
-    return src(`dev/scripts/*.js`)
+    return src(`js/*.js`)
         .pipe(babel())
         .pipe(jsCompressor())
-        .pipe(dest(`prod/scripts`));
-};
-
-let compressImages = () => {
-    return src(`dev/img/**/*`)
-        .pipe(imageCompressor({
-            optipng: ['-i 1', '-strip all', '-fix', '-o7', '-force'],
-            pngquant: ['--speed=1', '--force', 256],
-            zopflipng: ['-y', '--lossy_8bit', '--lossy_transparent'],
-            jpegRecompress: ['--strip', '--quality', 'medium', '--min', 40, '--max', 80],
-            mozjpeg: ['-optimize', '-progressive'],
-            gifsicle: ['--optimize'],
-            svgo: ['--enable', 'cleanupIDs', '--disable', 'convertColors'],
-            quiet: false
-        }))
-        .pipe(dest(`prod/img`));
+        .pipe(dest(`prod`));
 };
 
 let copyUnprocessedAssetsForProd = () => {
     return src([
-        `dev/*.*`,       // Source all files,
-        `dev/**`,        // and all folders,
-        `!dev/html/`,    // but not the HTML folder
-        `!dev/html/*.*`, // or any files in it
-        `!dev/html/**`,  // or any sub folders;
-        `!dev/img/`,     // ignore images;
-        `!dev/**/*.js`,  // ignore JS;
-        `!dev/styles/**` // and, ignore Sass/CSS.
+        `*.*`,       // Source all files,
+        `**`,        // and all folders,
+        `!html/`,    // but not the HTML folder
+        `!html/*.*`, // or any files in it
+        `!html/**`,  // or any sub folders;
+        `!js/*.js`,  // ignore JS;
+        `!css/**` // and, ignore Sass/CSS.
     ], {dot: true})
         .pipe(dest(`prod`));
 };
@@ -141,29 +125,29 @@ let serve = () => {
         server: {
             baseDir: [
                 `temp`,
-                `dev`,
-                `dev/html`
+                `html`,
+                `css`,
+                `js`
             ]
         }
     });
 
-    watch(`dev/scripts/*.js`, series(lintJS, transpileJSForDev))
+    watch(`js/*.js`, series(lintJS, transpileJSForDev))
         .on(`change`, reload);
 
-    watch(`dev/styles/scss/**/*.scss`, compileCSSForDev)
+    /*
+    watch(`css/*.css`, compileCSSForDev)
         .on(`change`, reload);
+    */
 
-    watch(`dev/html/**/*.html`, validateHTML)
-        .on(`change`, reload);
-
-    watch(`dev/img/**/*`)
+    watch(`html/*.html`, validateHTML)
         .on(`change`, reload);
 };
 
 async function clean() {
     let fs = require(`fs`),
         i,
-        foldersToDelete = [`./temp`, `prod`];
+        foldersToDelete = [`temp`, `prod`];
 
     for (i = 0; i < foldersToDelete.length; i++) {
         try {
@@ -201,7 +185,7 @@ async function listTasks () {
 }
 
 let lintCSS = () => {
-    return src(`dev/styles/css/**/*.css`)
+    return src(`css/*.css`)
         .pipe(CSSLinter({
             failAfterError: false,
             reporters: [
@@ -219,28 +203,26 @@ exports.safari = series(safari, serve);
 exports.vivaldi = series(vivaldi, serve);
 exports.allBrowsers = series(allBrowsers, serve);
 exports.validateHTML = validateHTML;
-exports.compileCSSForDev = compileCSSForDev;
+//exports.compileCSSForDev = compileCSSForDev;
 exports.lintJS = lintJS;
 exports.transpileJSForDev = transpileJSForDev;
 exports.compressHTML = compressHTML;
-exports.compileCSSForProd = compileCSSForProd;
+//exports.compileCSSForProd = compileCSSForProd;
 exports.transpileJSForProd = transpileJSForProd;
-exports.compressImages = compressImages;
 exports.copyUnprocessedAssetsForProd = copyUnprocessedAssetsForProd;
 exports.clean = clean;
 exports.default = listTasks;
 exports.lintCSS = lintCSS;
 exports.serve = series(
     validateHTML,
-    compileCSSForDev,
+    //compileCSSForDev,
     lintJS,
     transpileJSForDev,
     serve
 );
 exports.build = series(
     compressHTML,
-    compileCSSForProd,
+    //compileCSSForProd,
     transpileJSForProd,
-    compressImages,
     copyUnprocessedAssetsForProd
 );
