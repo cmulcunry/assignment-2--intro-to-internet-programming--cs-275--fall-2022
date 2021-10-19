@@ -32,6 +32,12 @@ button {
   font-family: 'Maven Pro', sans-serif;
 }
 
+.buttonClicked {
+  background: #bd8f97;
+  color: white;
+  border: 1px solid white;
+}
+
 input {
   text-align: center;
   background-color: rgb(31, 31, 31);
@@ -46,11 +52,6 @@ input {
 
 p {
   line-height: 20px;
-}
-
-.relativeFixed {
-  position: fixed;
-  visibility: hidden;
 }
 
 .recipe {
