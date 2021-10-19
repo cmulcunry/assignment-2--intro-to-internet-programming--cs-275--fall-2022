@@ -4,7 +4,7 @@ const htmlCompressor = require(`gulp-htmlmin`);
 const babel = require(`gulp-babel`);
 const jsLinter = require(`gulp-eslint`);
 const cssLinter = require(`gulp-stylelint`);
-const cssCompressor = require(`css-minify`)
+const cssCompressor = require(`gulp-uglifycss`)
 const browserSync = require(`browser-sync`);
 const jsCompressor = require(`gulp-uglify`);
 const reload = browserSync.reload;
@@ -36,7 +36,7 @@ let transpileJSForProd = () => {
 let compileCSSForProd = () => {
     return src(`css/*.css`)
         .pipe(cssCompressor())
-        .pipe(dest(`prod/css`));
+        .pipe(dest(`prod/styles`));
 };
 
 let lintJS = () => {
@@ -106,13 +106,13 @@ let serve = () => {
 
 let copyUnprocessedAssetsForProd = () => {
     return src([
-        `/*.*`,       // Source all files,
-        `/**`,        // and all folders,
-        `!/html/`,    // but not the HTML folder
-        `!/html/*.*`, // or any files in it
-        `!/html/**`,  // or any sub folders;
-        `!/**/*.js`,  // ignore JS;
-        `!/css/**` // and, ignore Sass/CSS.
+      `dev/*.*`,       // Source all files,
+      `dev/**`,        // and all folders,
+      `!dev/html/`,    // but not the HTML folder
+      `!dev/html/*.*`, // or any files in it
+      `!dev/html/**`,  // or any sub folders;
+      `!dev/**/*.js`,  // ignore JS;
+      `!dev/css/**` // and, ignore Sass/CSS.
     ], {dot: true}).pipe(dest(`prod`));
 };
 
