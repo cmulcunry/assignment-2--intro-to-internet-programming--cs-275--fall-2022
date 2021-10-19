@@ -54,6 +54,10 @@ p {
   line-height: 20px;
 }
 
+.hidden {
+  display: none;
+}
+
 .recipe {
   letter-spacing: .8px;
   text-align: left;
