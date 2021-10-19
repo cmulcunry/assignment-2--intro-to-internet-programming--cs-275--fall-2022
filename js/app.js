@@ -1,21 +1,23 @@
 window.onload = () => {
-    let whiteRice = document.getElementById(`white-rice`);
-    let caliRice = document.getElementById(`cali-rice`);
-    let whiteRecipe = document.getElementById(`white-recipe`);
-    let caliRecipe = document.getElementById(`cali-recipe`);
-    let error = document.getElementById(`error`);
+    const WHITERICEBUTTON = document.getElementById(`white-rice`);
+    const CALIRICEBUTTON = document.getElementById(`cali-rice`);
+    const WHITERECIPE = document.getElementById(`white-recipe`);
+    const CALIRECIPE = document.getElementById(`cali-recipe`);
+    const ERROR = document.getElementById(`error`);
     let currentRice = `white`;
-    error.style.display = `none`;
-    caliRecipe.style.display = `none`;
 
-    function setWhiteRice(cup) {
-        document.getElementById(`cup`).textContent = cup;
+    const END = document.getElementById(`given-cups`).value.length;
+    document.getElementById(`given-cups`).setSelectionRange(END, END);
+    document.getElementById(`given-cups`).focus();
+
+    function setwhiteRiceButton(cup) {
+        document.getElementsByClassName(`cup`)[0].textContent = cup;
         document.getElementById(`white-water`).textContent =
         Math.round((cup * 2)*100)/100;
     }
 
-    function setCaliRice(cup) {
-        document.getElementById(`cups`).textContent = cup;
+    function setcaliRiceButton(cup) {
+        document.getElementsByClassName(`cup`)[1].textContent = cup;
         document.getElementById(`cali-water`).textContent =
         Math.round((cup * 1.6)*100)/100;
     }
@@ -30,40 +32,39 @@ window.onload = () => {
     document.getElementById(`given-cups`).addEventListener(`keyup`, listener, false);
     function listener()  {
         let cup = document.getElementById(`given-cups`).value;
-        error.style.display = `none`;
+        ERROR.style.display = `none`;
         if (!isNumeric(cup)) {
-            error.style.display = `block`;
-            whiteRecipe.style.display = `none`;
-            caliRecipe.style.display = `none`;
+            ERROR.style.display = `block`;
+            WHITERECIPE.style.display = `none`;
+            CALIRECIPE.style.display = `none`;
         } else {
             if (currentRice === `white`) {
-                caliRecipe.style.display = `none`;
-                whiteRecipe.style.display = `block`;
-                setWhiteRice(cup);
+                CALIRECIPE.style.display = `none`;
+                WHITERECIPE.style.display = `block`;
+                setwhiteRiceButton(cup);
             } else if (currentRice === `cali`) {
-                whiteRecipe.style.display = `none`;
-                caliRecipe.style.display = `block`;
-                setCaliRice(cup);
+                WHITERECIPE.style.display = `none`;
+                CALIRECIPE.style.display = `block`;
+                setcaliRiceButton(cup);
             }
         }
     }
 
-    whiteRice.onclick = () => {
+    WHITERICEBUTTON.addEventListener(`click`, whiteButtonlistener, false);
+    function whiteButtonlistener() {
         currentRice = `white`;
         listener();
-        whiteRice.classList.add(`button-clicked`);
-        caliRice.classList.remove(`button-clicked`);
-    };
+        WHITERICEBUTTON.classList.add(`button-clicked`);
+        CALIRICEBUTTON.classList.remove(`button-clicked`);
+    }
 
-    caliRice.onclick = () => {
+    CALIRICEBUTTON.addEventListener(`click`, caliButtonlistener, false);
+    function caliButtonlistener() {
         currentRice = `cali`;
         listener();
-        caliRice.classList.add(`button-clicked`);
-        whiteRice.classList.remove(`button-clicked`);
-    };
+        CALIRICEBUTTON.classList.add(`button-clicked`);
+        WHITERICEBUTTON.classList.remove(`button-clicked`);
+    }
 
-    const END = document.getElementById(`given-cups`).value.length;
-    document.getElementById(`given-cups`).setSelectionRange(END, END);
-    document.getElementById(`given-cups`).focus();
     document.getElementById(`white-rice`).click();
 };
