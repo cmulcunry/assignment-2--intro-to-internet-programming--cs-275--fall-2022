@@ -1,21 +1,21 @@
 function init() {
     updateAmount();
     dropdownChangeRice();
-};
+}
 
 function changeSelection(toWhat) {
-    if (toWhat === "white rice") {
-        document.getElementById("whiteDiv").classList.remove("disabled");
-        document.getElementById("caliDiv").classList.add("disabled");
+    if (toWhat === `white rice`) {
+        document.getElementById(`whiteDiv`).classList.remove(`disabled`);
+        document.getElementById(`caliDiv`).classList.add(`disabled`);
     } else {
-        document.getElementById("whiteDiv").classList.add("disabled");
-        document.getElementById("caliDiv").classList.remove("disabled");
+        document.getElementById(`whiteDiv`).classList.add(`disabled`);
+        document.getElementById(`caliDiv`).classList.remove(`disabled`);
     }
-};
+}
 
 function dropdownChangeRice() {
-    changeSelection(document.getElementById("riceSelector").value);
-};
+    changeSelection(document.getElementById(`riceSelector`).value);
+}
 
 function washNumber(washable) {
     if (isNaN(washable)) return washable;
@@ -38,15 +38,15 @@ function washNumber(washable) {
         if (numerator === 1 && denominator === 1) {
             washable = `${Math.ceil(washable)}`;
         } else {
-            washable = `${washable > 1 ? Math.floor(washable) : ""} ${numerator}/${denominator}`;
+            washable = `${washable > 1 ? Math.floor(washable) : ``} ${numerator}/${denominator}`;
         }
     }
 
     return washable;
-};
+}
 
 function updateAmount() {
-    let rice = document.getElementById("amountInput").value;
+    let rice = document.getElementById(`amountInput`).value;
 
     if (isNaN(rice) || Number(rice) < 0) {
         rice = 1;
@@ -60,20 +60,20 @@ function updateAmount() {
 
     updateWhite(rice);
     updateCali(rice);
-};
+}
 
 function updateWhite(rice) {
-    const RICE_TEXT = `${washNumber(rice)} ${rice === 1 ? "cup" : "cups"}`;
-    const WATER_TEXT = `${washNumber(rice * 2)} ${rice * 2 === 1 ? "cup" : "cups"}`;
+    const RICE_TEXT = `${washNumber(rice)} ${rice === 1 ? `cup` : `cups`}`;
+    const WATER_TEXT = `${washNumber(rice * 2)} ${rice * 2 === 1 ? `cup` : `cups`}`;
 
-    document.getElementById("whiteRice").innerHTML = RICE_TEXT;
-    document.getElementById("whiteWater").innerHTML = WATER_TEXT;
-};
+    document.getElementById(`whiteRice`).innerHTML = RICE_TEXT;
+    document.getElementById(`whiteWater`).innerHTML = WATER_TEXT;
+}
 
 function updateCali(rice) {
-    const RICE_TEXT = `${washNumber(rice)} ${rice === 1 ? "cup" : "cups"}`;
-    const WATER_TEXT = `${washNumber(rice * 8 / 5)} ${washNumber(rice * 8 / 5) === "1" ? "cup" : "cups"}`;
+    const RICE_TEXT = `${washNumber(rice)} ${rice === 1 ? `cup` : `cups`}`;
+    const WATER_TEXT = `${washNumber(rice * 8 / 5)} ${washNumber(rice * 8 / 5) === `1` ? `cup` : `cups`}`;
 
-    document.getElementById("caliRice").innerHTML = RICE_TEXT;
-    document.getElementById("caliWater").innerHTML = WATER_TEXT;
-};
+    document.getElementById(`caliRice`).innerHTML = RICE_TEXT;
+    document.getElementById(`caliWater`).innerHTML = WATER_TEXT;
+}
