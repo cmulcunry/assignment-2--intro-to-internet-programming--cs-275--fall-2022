@@ -1,15 +1,15 @@
 window.onload = () =>
 {
-    const WHITE = document.getElementById(`white`);
-    const CALIFORNIA = document.getElementById(`california`);
-    const INPUT = document.getElementById(`input`);
-    const SELECT = document.getElementById(`select`);
-    const RICETYPE = document.getElementById(`riceType`);
-    const CALIRICE = document.getElementById(`caliRice`);
-    const CALIWATER = document.getElementById(`caliWater`);
-    const CALISOFTWATER = document.getElementById(`caliSoftWater`);
-    const WHITERICE = document.getElementById(`whiteRice`);
-    const WHITEWATER = document.getElementById(`whiteWater`);
+    const WHITE = document.getElementById(`white`),
+        CALIFORNIA = document.getElementById(`california`),
+        INPUT = document.getElementById(`input`),
+        SELECT = document.getElementById(`select`),
+        RICETYPE = document.getElementById(`riceType`),
+        CALIRICE = document.getElementById(`caliRice`),
+        CALIWATER = document.getElementById(`caliWater`),
+        CALISOFTWATER = document.getElementById(`caliSoftWater`),
+        WHITERICE = document.getElementById(`whiteRice`),
+        WHITEWATER = document.getElementById(`whiteWater`);
 
     let updateQuantities = () => {
         let x = INPUT.value;
