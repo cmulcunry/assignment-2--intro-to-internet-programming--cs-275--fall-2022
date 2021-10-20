@@ -86,7 +86,7 @@ window.onload = () => {
     };
 
     let headerText = document.getElementsByTagName(`h1`)[0];
-    let text = document.getElementsByTagName(`text`);
+    let text = document.getElementsByClassName(`text`);
     let normalSetup = () => {
         turnOffRecipe();
         headerText.textContent = `Rice Recipes`;
