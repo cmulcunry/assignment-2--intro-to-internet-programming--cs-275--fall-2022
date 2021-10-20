@@ -1,7 +1,7 @@
-function init() {
+window.onload = () => {
     updateAmount();
     dropdownChangeRice();
-}
+};
 
 function changeSelection(toWhat) {
     if (toWhat === `white rice`) {
@@ -38,7 +38,8 @@ function washNumber(washable) {
         if (numerator === 1 && denominator === 1) {
             washable = `${Math.ceil(washable)}`;
         } else {
-            washable = `${washable > 1 ? Math.floor(washable) : ``} ${numerator}/${denominator}`;
+            washable = `${washable > 1 ? Math.floor(washable) : ``}`
+                + `${numerator}/${denominator}`;
         }
     }
 
@@ -72,7 +73,8 @@ function updateWhite(rice) {
 
 function updateCali(rice) {
     const RICE_TEXT = `${washNumber(rice)} ${rice === 1 ? `cup` : `cups`}`;
-    const WATER_TEXT = `${washNumber(rice * 8 / 5)} ${washNumber(rice * 8 / 5) === `1` ? `cup` : `cups`}`;
+    const WATER_TEXT = `${washNumber(rice * 8 / 5)}`
+        + `${washNumber(rice * 8 / 5) === `1` ? `cup` : `cups`}`;
 
     document.getElementById(`cali-rice`).innerHTML = RICE_TEXT;
     document.getElementById(`cali-water`).innerHTML = WATER_TEXT;
