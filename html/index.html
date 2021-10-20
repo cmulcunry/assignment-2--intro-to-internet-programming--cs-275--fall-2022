@@ -17,26 +17,28 @@
         <div id="nav">
             <!-- Create button id && onClick="Function()"-->
             <button id="white-rice"> White Rice </button>
-            <button id="sprouted-rice"> Sprouted California rice </button>
+            <button id="sprouted-rice"> Sprouted California Rice </button>
         </div>
     </main>
     <form>
         <div id="cupNumber">
-            <input id="cupAmount" type="number" value="1" min ="1" max="5"> cups of rice
+            <input id="cupAmount" type="number" value="" min ="1" max="5"> cups of rice
             <button id="cupSubmit">Calculate</button>
         </div>
     </form>
     <div id="white" class="recipe">
+        <h2>How to make White Rice</h2>
         <p>
-            Combine 1 cup of rice with 2 cups of water and 1 Tbsp olive oil. 
+            Combine <span id="cupRice"></span> cup(s) of rice with <span id="cupWater"></span> cup(s) of water and 1 Tbsp olive oil. 
             Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.
         </p>
     </div>
 
     <div id="sprouted" class="recipe">
+        <h2>How to make Sprouted California Rice</h2>
         <p>
             For slightly al dente rice:
-            Combine 1 1/4 cups of rice with 2 cups of water or broth and 1 Tbsp olive oil. 
+            Combine <span id="cupSproutRice"></span> cup(s) of rice with <span id="cupSproutWater"></span> cup(s) of water or broth and 1 Tbsp olive oil. 
             Bring to a boil and stir once to mix. Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes. 
             Remove from heat and let stand for 5 minutes. Fluff with a fork and serve.
 
