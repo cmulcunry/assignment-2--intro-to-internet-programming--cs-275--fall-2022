@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Rice Recipes</title>
 </head>
@@ -21,8 +22,9 @@
         </div>
     </main>
     <form>
-        <div id="cupContainer">
-            <input id="cupAmount" type="text" minLength="1" maxLength="2" placeholder="Enter number only"> cups of rice.
+        <div id="cupContainer" class="recipe">
+            <p>How many cups of rice will you be making?</p>
+           <input id="cupAmount" type="text" minLength="1" maxLength="2" placeholder="NUM"> cups of rice.
         </div>
     </form>
     <div id="white" class="recipe">
@@ -38,9 +40,10 @@
             <p><span id="cupSproutWater"></span> cup(s) of water or broth and 1 Tbsp olive oil.</p> 
             <p>Bring to a boil and stir once to mix. Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</p>
             <p>Remove from heat and let stand for 5 minutes. Fluff with a fork and serve.</p>
-
+        <div id="softerRice" class="recipe">
             <p>For softer rice:</p>
             <p>Increase liquid by 1/2 cup and cook time by 5 minutes.</p>
+        </div>
     </div>
 
 <script src=app.js></script>

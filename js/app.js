@@ -1,20 +1,16 @@
 window.onload = () => {
     document.getElementById(`cupAmount`).addEventListener(`keyup`, listener, false);
 
-    //Variables to assign button functions to
     let whiteRiceButton = document.getElementById(`white-rice`);
     let sproutedRiceButton = document.getElementById(`sprouted-rice`);
 
-    //Content of recipes
     let whiteRice = document.getElementById(`white`);
     let sproutedRice = document.getElementById(`sprouted`);
 
-    //Hide recipes by default until buttonclick
     document.getElementById(`white`).style.display = `none`;
     document.getElementById(`sprouted`).style.display = `none`;
     document.getElementById(`cupContainer`).style.display = `none`;
 
-    //Create functions to hide the recipes
     whiteRiceButton.onclick = function white() {
         document.getElementById(`sprouted`).style.display = `none`;
         document.getElementById(`white`).style.display = ``;
