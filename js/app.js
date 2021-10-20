@@ -8,23 +8,29 @@ let cupsSoft = document.getElementById(`cupsSoft`);
 let cupsWhite = document.getElementById(`cupsWhite`);
 let sproutedCalifornia = document.getElementById(`sproutedCalifornia`);
 let white = document.getElementById(`white`);
+let alDenteAmount = Math.floor(riceAmount * (2/1.25) * 10)/10;
+let softAmount = Math.floor(riceAmount * (2.5/1.25) * 10)/10;
+let whiteAmount = Math.floor(riceAmount * 20)/10;
 
-cupsAlDente.value = `${riceAmount * (2/1.25)} cups of water are needed.`;
-cupsSoft.value = `${riceAmount * (2.5/1.25)} cups of water are needed.`;
-cupsWhite.value = `${riceAmount * 2} cups of water are needed.`;
-document.getElementById(`white`).hidden = `hidden`;
+cupsAlDente.value = `${alDenteAmount} cups of water are needed.`;
+cupsSoft.value = `${softAmount} cups of water are needed.`;
+cupsWhite.value = `${whiteAmount} cups of water are needed.`;
+white.hidden = `hidden`;
 
 input.onkeyup = function input() {
     riceAmount = document.getElementById(`riceAmount`).value;
-    cupsAlDente.value = `${riceAmount * (2/1.25)} cups of water are needed.`;
-    cupsSoft.value  = `${riceAmount * (2.5/1.25)} cups of water are needed.`;
-    cupsWhite.value = `${riceAmount * 2} cups of water are needed.`;
+    alDenteAmount = Math.floor(riceAmount * (2/1.25) * 10)/10;
+    softAmount = Math.floor(riceAmount * (2.5/1.25) * 10)/10;
+    whiteAmount = Math.floor(riceAmount * 20)/10;
+    cupsAlDente.value = `${alDenteAmount} cups of water are needed.`;
+    cupsSoft.value  = `${softAmount} cups of water are needed.`;
+    cupsWhite.value = `${whiteAmount} cups of water are needed.`;
 };
 
 buttonWhiteRice.onclick = function changeRecipeToWhite() {
     h2.innerHTML = `Making White Rice`;
     sproutedCalifornia.hidden = `hidden`;
-    document.getElementById(`white`).hidden = ``;
+    white.hidden = ``;
 };
 
 buttonSproutedRice.onclick = function changeRecipeToSprouted() {
