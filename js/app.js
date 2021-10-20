@@ -1,16 +1,23 @@
 let input = document.getElementById(`riceAmount`);
-let riceAmount = document.getElementById(`riceAmount`).value;
+let riceAmount = input.value;
 let buttonWhiteRice = document.getElementById(`changeRecipeToWhite`);
 let buttonSproutedRice = document.getElementById(`changeRecipeToSprouted`);
 let h2 = document.querySelector(`h2`);
-document.getElementById(`cupsAlDente`).value = riceAmount * (2/1.25);
-document.getElementById(`cupsSoft`).value = riceAmount * (2.5/1.25);
+let cupsWhite = document.getElementById(`cupsWhite`);
+document.getElementById(`cupsAlDente`).value = `${riceAmount * (2/1.25)}
+cups of water are needed.`;
+document.getElementById(`cupsSoft`).value = `${riceAmount * (2.5/1.25)}
+cups of water are needed.`;
+cupsWhite.value = `${riceAmount * 2} cups of water are needed.`;
 document.getElementById(`white`).hidden = `hidden`;
 
 input.onkeyup = function input() {
     riceAmount = document.getElementById(`riceAmount`).value;
-    document.getElementById(`cupsAlDente`).value = riceAmount * (2/1.25);
-    document.getElementById(`cupsSoft`).value = riceAmount * (2.5/1.25);
+    document.getElementById(`cupsAlDente`).value = `${riceAmount * (2/1.25)}
+    cups of water are needed.`;
+    document.getElementById(`cupsSoft`).value = `${riceAmount * (2.5/1.25)}
+    cups of water are needed.`;
+    cupsWhite.value = `${riceAmount * 2} cups of water are needed.`;
 };
 
 buttonWhiteRice.onclick = function changeRecipeToWhite() {
