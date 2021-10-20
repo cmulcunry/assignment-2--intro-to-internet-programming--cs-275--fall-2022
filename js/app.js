@@ -7,7 +7,7 @@
 
 
     if (rice === "White Rice") {
-        
+
         console.log( "Combine" + howMuch + "cup of rice with  "
             + howMuch * 2 + "cups of water and " + howMuch + "tbsp olive oil. Bring to a boil, then reduce heat to the lowest setting. Cook for about"
             + (18 + ((howMuch - 1) * 10)) + "minutes.") ;
