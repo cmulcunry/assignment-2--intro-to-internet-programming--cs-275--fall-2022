@@ -27,7 +27,10 @@
     "stylelint": "^13.13.1"
   },
   "dependencies": {
-    "gulp-htmlmin": "^5.0.1",
-
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.27.5",
+    "del": "^6.0.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-htmlmin": "^5.0.1"
   }
 }
