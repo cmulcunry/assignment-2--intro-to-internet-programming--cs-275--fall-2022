@@ -21,30 +21,26 @@
         </div>
     </main>
     <form>
-        <div id="cupNumber">
-            <input id="cupAmount" type="number" value="" min ="1" max="5"> cups of rice
-            <button id="cupSubmit">Calculate</button>
+        <div id="cupContainer">
+            <input id="cupAmount" type="text" minLength="1" maxLength="2" placeholder="Enter number only"> cups of rice.
         </div>
     </form>
     <div id="white" class="recipe">
         <h2>How to make White Rice</h2>
-        <p>
-            Combine <span id="cupRice"></span> cup(s) of rice with <span id="cupWater"></span> cup(s) of water and 1 Tbsp olive oil. 
-            Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.
-        </p>
+            <p>Combine <span id="cupRice"></span> cup(s) of rice with <span id="cupWater"></span> cup(s) of water and 1 Tbsp olive oil.</p>
+            <p>Bring to a boil, then reduce heat to the lowest setting. Cook for about 18 minutes.</p>
     </div>
 
     <div id="sprouted" class="recipe">
         <h2>How to make Sprouted California Rice</h2>
-        <p>
-            For slightly al dente rice:
-            Combine <span id="cupSproutRice"></span> cup(s) of rice with <span id="cupSproutWater"></span> cup(s) of water or broth and 1 Tbsp olive oil. 
-            Bring to a boil and stir once to mix. Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes. 
-            Remove from heat and let stand for 5 minutes. Fluff with a fork and serve.
+            <p>For slightly al dente rice:</p>
+            <p>Combine <span id="cupSproutRice"></span> cup(s) of rice with</p>
+            <p><span id="cupSproutWater"></span> cup(s) of water or broth and 1 Tbsp olive oil.</p> 
+            <p>Bring to a boil and stir once to mix. Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</p>
+            <p>Remove from heat and let stand for 5 minutes. Fluff with a fork and serve.</p>
 
-            For softer rice:
-            Increase liquid by 1/2 cup and cook time by 5 minutes.
-        </p>
+            <p>For softer rice:</p>
+            <p>Increase liquid by 1/2 cup and cook time by 5 minutes.</p>
     </div>
 
 <script src=app.js></script>

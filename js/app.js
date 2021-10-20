@@ -1,13 +1,10 @@
 window.onload = () => {
-    //Value of how many cups
-    let cups = document.getElementById(`cupAmount`);
-    cups.setAttribute(`value`, cups.value);
+    document.getElementById(`cupAmount`).addEventListener(`keyup`, listener, false);
+
     //Variables to assign button functions to
     let whiteRiceButton = document.getElementById(`white-rice`);
     let sproutedRiceButton = document.getElementById(`sprouted-rice`);
-    //let calculate = document.getElementById(`cupSubmit`);
 
-    //calculate.addEventListener(`click`, cups, false); 
     //Content of recipes
     let whiteRice = document.getElementById(`white`);
     let sproutedRice = document.getElementById(`sprouted`);
@@ -15,35 +12,39 @@ window.onload = () => {
     //Hide recipes by default until buttonclick
     document.getElementById(`white`).style.display = `none`;
     document.getElementById(`sprouted`).style.display = `none`;
+    document.getElementById(`cupContainer`).style.display = `none`;
 
     //Create functions to hide the recipes
     whiteRiceButton.onclick = function white() {
         document.getElementById(`sprouted`).style.display = `none`;
         document.getElementById(`white`).style.display = ``;
+        document.getElementById(`cupContainer`).style.display = ``;
     };
     sproutedRiceButton.onclick = function sprouted() {
         document.getElementById(`sprouted`).style.display = ``;
         document.getElementById(`white`).style.display = `none`;
+        document.getElementById(`cupContainer`).style.display = ``;
+    }; 
 
-    };
-
-    //Function to show how many cups
-    function amountOfCups() {
-        let amount = Math.ceil(cups.value);
-
+    function listener() {
+        let cups = document.getElementById(`cupAmount`).value;
         if (sproutedRice.style.display == `none`) {
-            document.getElementById(`cupRice`).value = amount;
-            document.getElementById(`cupWater`).value = amount * 2;
-        } else
-        {
-            if (whiteRice.style.display == `none`) {
-                document.getElementById(`cupSproutRice`).value = amount;
-                document.getElementById(`cupSproutWater`).value = amount * 1.6;
-            }
+            amountWhite(cups);
+        }
+        else if (whiteRice.style.display == `none`) {
+            amountSprouted(cups);
         }
     }
 
+    function amountWhite(cups) {
+        let amountWhite = Math.ceil(cups);
+        document.getElementById(`cupWater`).textContent = amountWhite * 2;
+        document.getElementById(`cupRice`).textContent = amountWhite;
+    }
 
-
-   // alert(`Cup amount is ${amountofCups}`);
+    function amountSprouted(cups) {
+        let amountSprouted = Math.ceil(cups);
+        document.getElementById(`cupSproutRice`).textContent = amountSprouted;
+        document.getElementById(`cupSproutWater`).textContent = amountSprouted * 1.6;
+    }
 };
