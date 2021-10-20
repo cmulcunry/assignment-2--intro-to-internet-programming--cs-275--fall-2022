@@ -12,14 +12,15 @@
 	<body>
 		  <header>
 		    <h1>Rice Recipes</h1>
+        <button class= "emoji-version" id="emoji-button">😀</button>
 		  </header>
       <div>
-				Type of rice:
+				<text>Type of rice:</text>
         <button id="white-rice">White Rice</button>
         <button id="cali-rice">California Sprouted Rice</button>
       </div>
       <form>
-        Number of cups: <input id="given-cups" type="text" size="3" maxlength="5" value="1">
+        <text>Number of cups: </text><input id="given-cups" type="text" size="3" maxlength="5" value="1">
       </form>
 			<div id="white-recipe" class="recipe hidden">
       	<p>Combine <span class="cup"></span> cup(s) of rice with <span id="white-water"></span> cups of water and 1 Tbsp olive oil.</p>
@@ -36,6 +37,22 @@
       </div>
 			<div id="error" class="recipe hidden">
         <p>Error, please input a number.</p>
+      </div>
+      <div id="white-recipe-emoji" class="recipe hidden">
+      	<p>{<span class="cup"></span>} ∪ {<span id="white-water-emoji"></span>} ➕ 1️⃣🥄🫒</p>
+				<p>🔥 ➡️ ⬇️ 🧯</p>
+				<p>❗🔞 ⏱️</p>
+			</div>
+      <div id="cali-recipe-emoji" class="recipe hidden">
+      	<p>💪🍙: ➕ {<span class="cup"></span>} ∪ {<span id="cali-water-emoji"></span>} ➕ 1️⃣🥄🫒</p>
+				<p>🔥💧🔥🥣</p>
+				<p>🔥 ➡️ ⬇️ 🧯, ❗🍳 🕑🕔⏳</p>
+				<p>❗🔥🧯🎛 🧍‍♀️ 5️⃣⏳</p>
+				<p>🍴🍽</p>
+				<p>🥎🍥: ↗ 💦1️⃣➗2️⃣ 🥤➕ 👩‍🍳5️⃣⏲</p>
+      </div>
+      <div id="error-emoji" class="recipe hidden">
+        <p>🔺😞🔺</p>
       </div>
       <script type="text/javascript" src=app.js></script>
 	</body>
