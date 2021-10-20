@@ -1,9 +1,16 @@
+let input = document.getElementById(`riceAmount`);
 let riceAmount = document.getElementById(`riceAmount`).value;
 let buttonWhiteRice = document.getElementById(`changeRecipeToWhite`);
 let buttonSproutedRice = document.getElementById(`changeRecipeToSprouted`);
 document.getElementById(`cupsAlDente`).value = riceAmount * (2/1.25);
 document.getElementById(`cupsSoft`).value = riceAmount * (2.5/1.25);
 document.getElementById(`white`).hidden = `hidden`;
+
+input.onkeyup = function input() {
+    riceAmount = document.getElementById(`riceAmount`).value;
+    document.getElementById(`cupsAlDente`).value = riceAmount * (2/1.25);
+    document.getElementById(`cupsSoft`).value = riceAmount * (2.5/1.25);
+};
 
 buttonWhiteRice.onclick = function changeRecipeToWhite() {
     document.getElementById(`sproutedCalifornia`).hidden = `hidden`;
