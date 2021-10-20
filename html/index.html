@@ -6,9 +6,13 @@
     <link href="../css/style.css" rel="stylesheet">
   </head>
   <body>
-    <div id="recipeSelect">
+    <div class="recipeSelect">
       <button id="cali-Button">Sprouted California Rice</button>
       <button id="white-Button">White Rice</button>
+      <div id="checkbox">
+        <input type="checkbox" id="softrice">
+        <label for="softrice"> Soft rice</label>
+      </div>
     </div>
     <div id="amountofRice">
       <h3>How much rice do you want to make?</h3>
@@ -16,16 +20,16 @@
     </div>
     <div id="white-rice-recipe">
       <h2> Making White Rice </h2>
-      <h3>Combine <span id="cups-of-rice"></span> cup of rice with <span id="cups-of-water"></span> cups of water and 1 Tbsp olive oil.</h3>
+      <h3>Combine xcup of rice with <span id="white-cups-water"></span> cups of water and 1 Tbsp olive oil.</h3>
       <h3>Bring to a boil and stir once to mix.</h3>
       <h3>Bring to a boil, then reduce heat to the lowest setting.</h3>
       <h3>Cook for about 18 minutes.</h3>
     </div>
     <div id="cali-rice-recipe">
       <h2> Making California Rice </h2>
-      <h3>Combine <span id="cali-cups-of-rice"></span> cups of rice with <span id="cali-cups-ofwater"></span> cups of water or broth and 1 Tbsp olive oil.</h3>
+      <h3>Combine <span id="cali-cups-rice"></span> cups of rice with <span id="cali-cups-water"></span> cups of water or broth and 1 Tbsp olive oil.</h3>
       <h3>Bring to a boil and stir once to mix.</h3>
-      <h3>Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</h3>
+      <h3>Reduce heat to low, cover with a tight-fitting lid and cook for <span id="cooktime"></span>  minutes.</h3>
       <h3>Remove from heat and let stand for 5 minutes.</h3>
       <h3>Fluff with a fork and serve.</h3>
     </div>

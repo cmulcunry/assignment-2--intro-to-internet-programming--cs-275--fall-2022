@@ -223,7 +223,7 @@ exports.lintJS = lintJS;
 exports.serve = series(validateHTML, validateCSS, transpileJSForDev ,serve);
 
 exports.dev = series(validateHTML, validateCSS, validateJS, transpileJSForDev, lintHTML, lintCSS, lintJS, serve);
-exports.build = series(compressHTML, compressCSS, transpileJSForProd, serve);
+exports.build = series(compressHTML, compressCSS, transpileJSForProd);
 
 exports.clean = clean;
 exports.default = listTasks;
