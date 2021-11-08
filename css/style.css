@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  background-color: #212121;
+  color: white;
+  line-height: 1rem;
+  font-family: monospace;
+  font-size: 1.3rem;
+}
+
+h1 {
+  margin-top: 1%;
+  padding-bottom: 2%;
+  text-align: center;
+  font-size: 3rem;
+  position: absolute;
+}
+
+.main {
+  margin-top: 7%;
+  left: 50%;
+  line-height: 1.3rem;
+}
+
+select {
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+input {
+  font-size: 1.1rem;
+}
+
+.white {
+  display: none;
+}
