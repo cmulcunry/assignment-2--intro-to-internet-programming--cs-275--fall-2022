@@ -1,0 +1,23 @@
+
+body {
+      color: #000;
+      height: 100vh;
+      font-family: 'Source Sans Pro', sans-serif;
+      background-color: #FBAB7E;
+      text-align: center;
+      padding: 30px;
+   }
+
+h1 {
+     font-size: 48px;
+     font-family:
+     font-weight: bolder;
+     background-color: White;
+     border-color: Black;
+}
+
+p {
+     font-size: : 32px;
+     font-family: font-family: 'Source Sans Pro', sans-serif;
+     font-weight: bold;
+}
