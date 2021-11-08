@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel ="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap">
+  <link href="styles/style.css" rel="stylesheet">
+  <title>Scott Kennedy | Assignment 2 | Intro to Internet Programming</title>
+</head>
+<body>
+  <header>
+    <h1> Rice Recipes </h1>
+    <button id = "changeRecipeToSprouted">Sprouted California Rice</button>
+    <button id = "changeRecipeToWhite">White Rice</button>
+  </header>
+  <main>
+    <h2>Making Sprouted California Rice</h2>
+    <p>How much rice? <p>
+    <p>
+      <input id = "riceAmount" type="number" value = "0"> cups of rice
+    </p>
+    <div id = "sproutedCalifornia">
+      <p>For slightly al dente rice:</p>
+      <p>
+        Combine 1 1/4 cups of rice with 2 cups of water or broth and
+        1 Tbsp olive oil.
+        Bring to a boil and stir once to mix.
+        Reduce heat to low, cover with a tight-fitting lid and cook for 25
+        minutes. Remove from heat and let stand for 5 minutes.
+        Fluff with a fork and serve.</p>
+      <p><output id = "cupsAlDente"></output></p>
+
+      <p>For softer rice:</p>
+      <p>Increase liquid by 1/2 cup and cook time by 5 minutes.<p>
+      <p><output id = "cupsSoft"></output></p>
+    </div>
+
+    <div id = "white">
+      <p>
+        Combine 1 cup of rice with 2 cups of water and 1 Tbsp olive oil.
+        Bring to a boil, then reduce heat to the lowest setting.
+        Cook for about 18 minutes.</p>
+        <p><output id = "cupsWhite"></output></p>
+    </div>
+  </main>
+
+  <script src = "scripts/app.js"></script>
+</body>
+</html>
