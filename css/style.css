@@ -1,0 +1,70 @@
+html {
+      background-color: #323232; /*Grey/neutral background color */
+      color: white;
+        font-family: 'Balsamiq Sans', cursive;
+}
+
+  header {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+  }
+
+  @keyframes FadeIn {
+    0% {
+      opacity: 0;
+    }
+    
+    80% {
+      opacity: 0.8;
+    }
+    
+    100% {
+      opacity: 1;
+    }
+  }
+
+  main {
+    text-align: center;
+  }
+
+  button { /* change to nav later */
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: #323232;
+    box-sizing: border-box;
+    margin: 16px;
+    border: 0.1rem solid #fff;
+    padding: 1em;
+    transition: all 0.5s;
+  }
+
+  button:hover {
+    border-color: #4eb5f1;
+    background-color: #fff;
+    color: #323232;
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0, 1rem, 2rem, rgba(0,0,0,.2);
+  }
+
+  #cupAmount {
+    width: 2.5em;
+  }
+
+  .recipe {
+    text-align: center;
+    animation-name: FadeIn;
+    animation-duration: 1s;
+  }
+
+  #softerRice {
+    font-style: italic;
+    animation-name: FadeIn;
+    animation-duration: 3s;
+}
