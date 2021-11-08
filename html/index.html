@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Rachel Liang | Assignment 2 | Intro to Internet Programming</title>
+		<link href="style.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com" rel="preconnect">
+		<link href="https://fonts.gstatic.com" crossorigin rel="preconnect">
+		<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Maven+Pro:wght@600&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		  <header>
+		    <h1>Rice Recipes</h1>
+        <button class= "emoji-version" id="emoji-button">😀</button>
+		  </header>
+      <div>
+				<span class="text">Type of rice:</span>
+        <button id="white-rice">White Rice</button>
+        <button id="cali-rice">California Sprouted Rice</button>
+      </div>
+      <form>
+        <span class="text">Number of cups: </span><input id="given-cups" type="text" size="3" maxlength="5" value="1">
+      </form>
+			<div id="white-recipe" class="recipe hidden">
+      	<p>Combine <span class="cup"></span> cup(s) of rice with <span id="white-water"></span> cups of water and 1 Tbsp olive oil.</p>
+				<p>Bring to a boil, then reduce heat to the lowest setting.</p>
+				<p>Cook for about 18 minutes.</p>
+			</div>
+			<div id="cali-recipe" class="recipe hidden">
+      	<p>For slightly al dente rice: Combine <span class="cup"></span> cup(s) of rice with <span id="cali-water"></span> cups of water and 1 Tbsp olive oil.</p>
+				<p>Bring to a boil and stir once to mix.</p>
+				<p>Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</p>
+				<p>Remove from heat and let stand for 5 minutes.</p>
+				<p>Fluff with a fork and serve.</p>
+				<p>For softer rice: Increase liquid by 1/2 cup and cook time by 5 minutes.</p>
+      </div>
+			<div id="error" class="recipe hidden">
+        <p>Error, please input a number.</p>
+      </div>
+      <div id="white-recipe-emoji" class="recipe hidden">
+      	<p>{<span class="cup"></span>} ∪ {<span id="white-water-emoji"></span>} ➕ 1️⃣🥄🫒</p>
+				<p>🔥 ➡️ ⬇️ 🧯</p>
+				<p>❗🔞 ⏱️</p>
+			</div>
+      <div id="cali-recipe-emoji" class="recipe hidden">
+      	<p>💪🍙: ➕ {<span class="cup"></span>} ∪ {<span id="cali-water-emoji"></span>} ➕ 1️⃣🥄🫒</p>
+				<p>🔥💧🔥🥣</p>
+				<p>🔥 ➡️ ⬇️ 🧯, ❗🍳 🕑🕔⏳</p>
+				<p>❗🔥🧯🎛 🧍‍♀️ 5️⃣⏳</p>
+				<p>🍴🍽</p>
+				<p>🥎🍥: ↗ 💦1️⃣➗2️⃣ 🥤➕ 👩‍🍳5️⃣⏲</p>
+      </div>
+      <div id="error-emoji" class="recipe hidden">
+        <p>🔺😞🔺</p>
+      </div>
+      <script type="text/javascript" src=app.js></script>
+	</body>
+</html>

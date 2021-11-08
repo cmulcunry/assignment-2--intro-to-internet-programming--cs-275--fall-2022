@@ -1,0 +1,92 @@
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-flow: column wrap;
+  text-align: center;
+  background-color: black;
+  color: pink;
+  font-size: 20px;
+  font-family: Dosis, sans-serif;
+  position: sticky;
+  margin: 0;
+}
+
+h1 {
+  margin-top: 4em;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+button {
+  color: white;
+  background-color: grey;
+  border-style: none;
+  padding: 10px;
+  margin: 4px;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+.emoji-version {
+  margin: 10px;
+  background-color: #1c1b1b;
+  top: 5px;
+  left: 5px;
+  padding: 0;
+  font-size: 15px;
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.emoji-version-clicked {
+  padding: 0;
+  background-color: pink;
+}
+
+.button-clicked {
+  background: #bd8f97;
+  color: white;
+  border: 1px solid white;
+}
+
+input {
+  text-align: center;
+  background-color: rgb(31, 31, 31);
+  color: white;
+  border-color: pink;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+  font-size: 18px;
+  margin: 10px;
+}
+
+p {
+  line-height: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.recipe {
+  letter-spacing: .8px;
+  text-align: left;
+  color: white;
+  line-height: 2.5rem;
+  border: .5px;
+  border-style: dashed;
+  border-color: rgb(255, 214, 221);
+  max-width: 50em;
+  padding: 10px;
+  padding-right: 25px;
+  padding-left: 25px;
+  margin: 20px;
+}
