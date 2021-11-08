@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Michael Sciancalepore | Assignment 2 | Intro to Internet Programming</title>
+  <link href="style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Andada+Pro&display=swap" rel="stylesheet">
+</head>
+  <body>
+  	<header>
+  		<h1>Rice Recipe Selection</h1>
+  	</header>
+
+  		<h2> Which type of rice do you want? </h2>
+      <button id="white">White Rice</button>
+      <button id="sproutedCalifornia">Sprouted California Rice</button>
+
+    <form>
+       <h2> How many cups of rice? </h2>
+       <input id="textBox" type="text" size="3" maxlength="5" value="0">
+    </form>
+
+    <div id="whiteRiceRecipe" class="recipe">
+    	<p>Combine <span id="whiteCups"></span> cup(s) of rice with <span id="whiteWater"></span> cups of water and 1 Tbsp olive oil.</p>
+	  	<p>Bring to a boil, then reduce heat to the lowest setting.</p>
+			<p>Cook for about 18 minutes.</p>
+	 </div>
+
+   <div id="sproutedCaliRecipe" class="recipe recipeRelativeFixed">
+    	<p>For slightly al dente rice: </p>
+      <p>Combine <span id="caliCups"></span> cup(s) of rice with <span id="caliWater"></span> cups of water and 1 Tbsp olive oil.</p>
+			<p>Bring to a boil and stir once to mix.</p>
+			<p>Reduce heat to low, cover with a tight-fitting lid and cook for 25 minutes.</p>
+			<p>Remove from heat and let stand for 5 minutes.</p>
+			<p>Fluff with a fork and serve.</p>
+			<p>For softer rice: </p>
+      <p>Increase liquid by 1/2 cup and cook time by 5 minutes.</p>
+  </div>
+
+	<div id="errorMessage" class="recipe recipeRelativeFixed">
+    <p>Please input a number greater than 0.</p>
+  </div>
+
+    <script type="text/javascript" src=app.js></script>
+  </body>
+</html>
