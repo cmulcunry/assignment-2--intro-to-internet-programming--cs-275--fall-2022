@@ -1,0 +1,59 @@
+body {
+  background-color: rgb(20, 20, 20);
+  color: rgb(220, 220, 220);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30rem;
+  margin: 0 auto;
+  font-family: 'PT Serif', serif;
+}
+
+body div {
+  background-color: rgb(40, 40, 40);
+  padding: 1rem;
+  margin: 0 1rem;
+  width: 90%;
+}
+
+body div div {
+  background-color: rgb(60, 60, 60);
+}
+
+#input-div {
+  text-align: center;
+  padding-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+#cali-div,
+#white-div {
+  margin-bottom: 1rem;
+}
+
+.disabled {
+  display: none;
+}
+
+li {
+  margin-bottom: .5rem;
+}
+
+#amount-input {
+  width: 3rem;
+}
+
+#title-div {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#title-div h3 {
+  margin-top: 0;
+}
+
+#main-content-div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
